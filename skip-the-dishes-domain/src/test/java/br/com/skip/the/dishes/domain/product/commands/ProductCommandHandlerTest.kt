@@ -14,7 +14,7 @@ import org.junit.Test
 
 class ProductCommandHandlerTest {
 
-    private val product = Product("Rice", "Delicious rice", "1", 10.12)
+    private val product = mock<Product> {  }
 
     private val eventRepository = mock<EventStoreRepository<Product>> {
         on { find(any()) } doReturn product
@@ -35,10 +35,12 @@ class ProductCommandHandlerTest {
 
     @Test
     fun `Update details for a product`() {
-        val updateDetailCommand = UpdateDetailCommand(productId, Detail("Bean", "Delicious bean"))
+        val detail = Detail("Bean", "Delicious bean")
+        val updateDetailCommand = UpdateDetailCommand(productId, detail)
 
         productCommandHandle.handle(updateDetailCommand)
 
+        verify(product).updateDetail(eq(detail))
         verify(eventRepository).find(eq(productId))
         verify(eventRepository).save(any(), eq(Repository.OptimisticLock.ENABLED))
     }
@@ -49,6 +51,7 @@ class ProductCommandHandlerTest {
 
         productCommandHandle.handle(updatePriceCommand)
 
+        verify(product).updatePrice(eq(20.10))
         verify(eventRepository).find(eq(productId))
         verify(eventRepository).save(any(), eq(Repository.OptimisticLock.ENABLED))
     }
