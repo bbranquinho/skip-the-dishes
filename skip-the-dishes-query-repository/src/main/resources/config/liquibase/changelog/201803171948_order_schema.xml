@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="201803171948-1" author="augusto.branquinho">
+        <createTable tableName="orders">
+            <column name="id" type="varchar(36)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="customer_id" type="varchar(128)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="delivery_address" type="varchar(128)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="contact" type="varchar(20)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="status" type="varchar(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

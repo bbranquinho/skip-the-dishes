@@ -1,5 +1,6 @@
 package br.com.skip.the.dishes.query;
 
+import br.com.skip.the.dishes.query.event.handler.order.OrderSubscription;
 import br.com.skip.the.dishes.query.event.handler.product.ProductEventHandler;
 import br.com.skip.the.dishes.query.event.handler.product.ProductSubscription;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,13 @@ public class QueryConfig {
     @Autowired
     private ProductSubscription productSubscription;
 
+    @Autowired
+    private OrderSubscription orderSubscription;
+
     @PostConstruct
     public void initSubscriptions() {
         productSubscription.start();
+        orderSubscription.start();
     }
 
 }

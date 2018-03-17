@@ -1,7 +1,5 @@
 package br.com.skip.the.dishes.query.repository.product;
 
-import org.springframework.data.jpa.domain.AbstractPersistable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

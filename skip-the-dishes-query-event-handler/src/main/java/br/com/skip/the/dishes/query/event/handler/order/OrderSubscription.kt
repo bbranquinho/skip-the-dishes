@@ -1,9 +1,7 @@
-package br.com.skip.the.dishes.query.event.handler.product
+package br.com.skip.the.dishes.query.event.handler.order
 
-
-import br.com.skip.the.dishes.domain.product.Product
+import br.com.skip.the.dishes.domain.order.Order
 import br.com.skip.the.dishes.query.event.handler.commons.AggregateSubscriber
-import br.com.zup.eventsourcing.core.EventHandler
 import br.com.zup.eventsourcing.eventstore.PersistentAggregateSubscriber
 import eventstore.j.EsConnection
 import eventstore.j.EsConnectionFactory
@@ -11,17 +9,17 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
 @Component
-class ProductSubscription(
+class OrderSubscription(
         private val aggregateSubscriber: AggregateSubscriber,
         @Value("\${event.sourcing.subscribe:1}") private val eventSourcingSubscribes: Int,
-        eventHandler: ProductEventHandler
-) : PersistentAggregateSubscriber<Product>(eventHandler = eventHandler) {
+        eventHandler: OrderEventHandler
+) : PersistentAggregateSubscriber<Order>(eventHandler = eventHandler) {
 
     private val esConnection: EsConnection = EsConnectionFactory.create(actorSystem)
 
     override fun start() {
         aggregateSubscriber.start(
-                aggregateRootName = Product::class.java.simpleName,
+                aggregateRootName = Order::class.java.simpleName,
                 actorSystem = actorSystem,
                 esConnection = esConnection
         )
@@ -30,4 +28,3 @@ class ProductSubscription(
     }
 
 }
-
