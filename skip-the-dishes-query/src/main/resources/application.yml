@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: Skip the Dishes (Query)
+
+# Server
+server:
+  version: @project.version@
+  port: 8081

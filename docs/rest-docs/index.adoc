@@ -1,5 +1,5 @@
 :source-highlighter: highlightjs
-= Hipster Tech Delivery
+= Skip the Dishes
 :revnumber: {version}
 :example-caption!:
 :toc:
