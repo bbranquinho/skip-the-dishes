@@ -8,6 +8,8 @@ public final class Paths {
 
     public static final String ORDER_PATH = ROOT_PATH + "/order";
 
+    public static final String CUSTOMER_PATH = ROOT_PATH + "/customer";
+
     private Paths() { }
 
 }

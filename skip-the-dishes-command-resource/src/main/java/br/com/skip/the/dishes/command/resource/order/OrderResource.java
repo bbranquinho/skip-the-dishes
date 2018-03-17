@@ -12,7 +12,7 @@ import javax.validation.Valid;
 @RestController
 public class OrderResource implements OrderApi {
 
-    private OrderCommandHandler orderCommandHandler;
+    private final OrderCommandHandler orderCommandHandler;
 
     public OrderResource(OrderCommandHandler orderCommandHandler) {
         this.orderCommandHandler = orderCommandHandler;

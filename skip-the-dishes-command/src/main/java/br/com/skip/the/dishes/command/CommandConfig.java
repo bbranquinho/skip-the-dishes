@@ -1,5 +1,7 @@
 package br.com.skip.the.dishes.command;
 
+import br.com.skip.the.dishes.domain.customer.Customer;
+import br.com.skip.the.dishes.domain.customer.commands.CustomerCommandHandler;
 import br.com.skip.the.dishes.domain.order.Order;
 import br.com.skip.the.dishes.domain.order.commands.OrderCommandHandler;
 import br.com.skip.the.dishes.domain.product.Product;
@@ -14,6 +16,11 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "br.com.skip.the.dishes.command")
 @Configuration
 public class CommandConfig {
+
+    @Bean
+    public CustomerCommandHandler customerCommandHandler(EventStoreRepository<Customer> customerEventRepository) {
+        return new CustomerCommandHandler(customerEventRepository);
+    }
 
     @Bean
     public OrderCommandHandler orderCommandHandler(EventStoreRepository<Order> orderEventRepository) {
