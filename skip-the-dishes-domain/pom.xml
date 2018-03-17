@@ -28,5 +28,16 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jcl</artifactId>
         </dependency>
+
+        <!-- Event Sourcing -->
+        <dependency>
+            <groupId>br.com.zup</groupId>
+            <artifactId>event-sourcing-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>br.com.zup</groupId>
+            <artifactId>event-store-connector</artifactId>
+        </dependency>
     </dependencies>
 </project>

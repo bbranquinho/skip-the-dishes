@@ -37,23 +37,6 @@
     </properties>
 
     <dependencies>
-        <!-- Event Sourcing - WARNING/TODO: Add dependency in a repository. -->
-        <dependency>
-            <groupId>br.com.zup</groupId>
-            <artifactId>event-sourcing-core</artifactId>
-            <version>${event.sourcing.version}</version>
-            <scope>system</scope>
-            <systemPath>${user.dir}/docs/repository/event-sourcing-core/event-sourcing-core-1.2.1-SNAPSHOT.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>br.com.zup</groupId>
-            <artifactId>event-store-connector</artifactId>
-            <version>${event.sourcing.version}</version>
-            <scope>system</scope>
-            <systemPath>${user.dir}/docs/repository/event-store-connector/event-store-connector-1.2.1-SNAPSHOT.jar</systemPath>
-        </dependency>
-
         <!-- Test -->
         <dependency>
             <groupId>junit</groupId>
@@ -114,6 +97,19 @@
                 <groupId>${project.groupId}</groupId>
                 <artifactId>skip-the-dishes-query-resource</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <!-- Event Sourcing - TODO: Add dependency in a repository. -->
+            <dependency>
+                <groupId>br.com.zup</groupId>
+                <artifactId>event-sourcing-core</artifactId>
+                <version>${event.sourcing.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>br.com.zup</groupId>
+                <artifactId>event-store-connector</artifactId>
+                <version>${event.sourcing.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

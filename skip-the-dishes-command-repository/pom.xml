@@ -11,5 +11,23 @@
 
     <artifactId>skip-the-dishes-command-repository</artifactId>
 
+    <dependencies>
+        <!-- Modules -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>skip-the-dishes-domain</artifactId>
+        </dependency>
 
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+        <!-- Event Sourcing -->
+        <dependency>
+            <groupId>br.com.zup</groupId>
+            <artifactId>event-store-connector</artifactId>
+        </dependency>
+    </dependencies>
 </project>
