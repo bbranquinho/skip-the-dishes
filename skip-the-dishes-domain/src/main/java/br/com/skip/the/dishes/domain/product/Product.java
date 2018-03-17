@@ -21,6 +21,9 @@ public class Product extends AggregateRoot {
 
     private Double price;
 
+    public Product() {
+    }
+
     public Product(String name, String description, String storeId, Double price) {
         ProductCreated productCreatedEvent = new ProductCreated(UUID.randomUUID().toString(), name, description, storeId, price);
         applyChange(productCreatedEvent);
@@ -28,7 +31,7 @@ public class Product extends AggregateRoot {
 
     @Override
     public void applyEvent(Event event) {
-        ((ProductEvent)event).accept(applier);
+        ((ProductEvent)event).accept(id, applier);
     }
 
     public void updateDetail(Detail detail) {
@@ -44,7 +47,7 @@ public class Product extends AggregateRoot {
     private class Applier implements ProductApplier {
 
         @Override
-        public void apply(ProductCreated productCreated) {
+        public void apply(AggregateId aggregateId, ProductCreated productCreated) {
             id = new AggregateId(productCreated.getProductId());
             detail = new Detail(productCreated.getName(), productCreated.getDescription());
             storeId = productCreated.getStoreId();
@@ -52,12 +55,12 @@ public class Product extends AggregateRoot {
         }
 
         @Override
-        public void apply(PriceUpdated priceUpdated) {
+        public void apply(AggregateId aggregateId, PriceUpdated priceUpdated) {
             price = priceUpdated.getPrice();
         }
 
         @Override
-        public void apply(DetailUpdated detailUpdated) {
+        public void apply(AggregateId aggregateId, DetailUpdated detailUpdated) {
             detail = detailUpdated.getDetail();
         }
 

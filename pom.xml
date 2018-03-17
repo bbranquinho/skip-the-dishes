@@ -34,6 +34,8 @@
         <mockito.kotlin.version>1.5.0</mockito.kotlin.version>
         <event.sourcing.version>1.2.1-SNAPSHOT</event.sourcing.version>
         <log4j.version>2.10.0</log4j.version>
+        <hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
+        <hibernate.validator.version>6.0.8.Final</hibernate.validator.version>
     </properties>
 
     <dependencies>
@@ -110,6 +112,19 @@
                 <groupId>br.com.zup</groupId>
                 <artifactId>event-store-connector</artifactId>
                 <version>${event.sourcing.version}</version>
+            </dependency>
+
+            <!-- Hibernate JPA -->
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.1-api</artifactId>
+                <version>${hibernate.jpa.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate.validator.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

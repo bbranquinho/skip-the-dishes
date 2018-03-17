@@ -2,9 +2,12 @@ package br.com.skip.the.dishes.domain.product;
 
 public class Detail {
 
-    private final String name;
+    private String name;
 
-    private final String description;
+    private String description;
+
+    private Detail() {
+    }
 
     public Detail(String name, String description) {
         this.name = name;
@@ -15,7 +18,15 @@ public class Detail {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
