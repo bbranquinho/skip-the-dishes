@@ -21,10 +21,10 @@ class ProductResourceTest : CommandResourceBaseTest() {
 
     @Test
     fun `Create a product with success`() {
-        val cartRequestContent = """{"name": "Rice","description": "Delicious rice","storeId": "24ee7c24-2a06-11e8-b467-0ed5f89f718b","price": 10.3}"""
+        val productRequestContent = """{"name": "Rice","description": "Delicious rice","storeId": "24ee7c24-2a06-11e8-b467-0ed5f89f718b","price": 10.3}"""
 
         this.mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/product")
-                .content(cartRequestContent)
+                .content(productRequestContent)
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isCreated)
                 .andExpect(MockMvcResultMatchers.jsonPath("$.productId", CoreMatchers.notNullValue()))

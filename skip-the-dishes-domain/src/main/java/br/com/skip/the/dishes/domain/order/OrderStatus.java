@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 public enum OrderStatus {
     CANCELLED("Cancelled"),
-    EXPIRED("Expired"),
     FINISHED("Finished"),
     NEW("New");
 

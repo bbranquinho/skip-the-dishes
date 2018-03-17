@@ -6,6 +6,8 @@ public final class Paths {
 
     public static final String PRODUCT_PATH = ROOT_PATH + "/product";
 
+    public static final String ORDER_PATH = ROOT_PATH + "/order";
+
     private Paths() { }
 
 }

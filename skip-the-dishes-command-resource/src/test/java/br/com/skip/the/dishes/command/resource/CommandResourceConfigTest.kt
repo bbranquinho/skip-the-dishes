@@ -18,12 +18,12 @@ class CommandResourceConfigTest {
 
     private val product = Product("Rice", "Delicious rice", "StoreId", 10.0)
 
-    private val cartCommandHandler = mock<ProductCommandHandler> {
+    private val productCommandHandler = mock<ProductCommandHandler> {
         on { handle(any<CreateProductCommand>()) } doReturn product
     }
 
     @Bean
     fun productCommandHandler(): ProductCommandHandler =
-            cartCommandHandler
+            productCommandHandler
 
 }

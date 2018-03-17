@@ -16,11 +16,11 @@ public interface ProductApi {
     CreateResponse create(@RequestBody @Valid CreateRequest createRequest);
 
     @ResponseStatus(OK)
-    @PutMapping(path = "/{id}/detail")
+    @PatchMapping(path = "/{id}/detail")
     void updateDetail(@PathVariable("id") String id, @RequestBody @Valid DetailRequest detailRequest);
 
     @ResponseStatus(OK)
-    @PutMapping(path = "/{id}/price")
+    @PatchMapping(path = "/{id}/price")
     void updatePrice(@PathVariable("id") String id, @RequestBody @Valid PriceRequest priceRequest);
 
 }

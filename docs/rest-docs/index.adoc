@@ -62,10 +62,10 @@ In a POST request, the response will contain an entity describing or containing 
 [[resources]]
 = Resources
 
-[[cart]]
-== Cart
+[[product]]
+== Product
 
-[[resources-cart-create]]
+[[resources-product-create]]
 === Create
 
 Call curl:

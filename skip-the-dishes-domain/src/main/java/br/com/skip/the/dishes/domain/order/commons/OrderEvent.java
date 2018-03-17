@@ -1,4 +1,4 @@
-package br.com.skip.the.dishes.domain.order.commands;
+package br.com.skip.the.dishes.domain.order.commons;
 
 import br.com.zup.eventsourcing.core.AggregateId;
 
