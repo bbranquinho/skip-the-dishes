@@ -1,0 +1,104 @@
+{
+	"id": "50aa2f89-04ef-e19f-5302-763dd651fddc",
+	"name": "Skip the Dishes",
+	"description": "",
+	"order": [
+		"109b77a7-f93b-7f46-4985-f94fa488ae34",
+		"310448df-5b17-83d8-5611-81525b6f3192",
+		"fa3f6d7e-3499-a70a-5b61-82fad73c8d43"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1521306689162,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "109b77a7-f93b-7f46-4985-f94fa488ae34",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/api/v1/product",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 201\"] = responseCode.code === 201;\n\nvar product = JSON.parse(responseBody);\n\npostman.setEnvironmentVariable(\"productId\", product.productId);\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1521307215265,
+			"name": "Create Product",
+			"description": "",
+			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\": \"Rice\",\n\t\"description\": \"Delicious rice\",\n\t\"storeId\": \"24ee7c24-2a06-11e8-b467-0ed5f89f718b\",\n\t\"price\": 10.3\n}"
+		},
+		{
+			"id": "310448df-5b17-83d8-5611-81525b6f3192",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/api/v1/product/{{productId}}/detail",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1521307293576,
+			"name": "Update Product Detail",
+			"description": "",
+			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\":\"My Rice\",\n\t\"description\": \"My delicious rice\"\n}\n"
+		},
+		{
+			"id": "fa3f6d7e-3499-a70a-5b61-82fad73c8d43",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/api/v1/product/{{productId}}/price",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1521307292577,
+			"name": "Update Product Price",
+			"description": "",
+			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
+			"responses": [],
+			"rawModeData": "{\n\t\"price\": 20.33\n}"
+		}
+	]
+}
