@@ -22,7 +22,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="storeId" type="varchar(36)">
+            <column name="store_id" type="varchar(36)">
                 <constraints nullable="false"/>
             </column>
         </createTable>

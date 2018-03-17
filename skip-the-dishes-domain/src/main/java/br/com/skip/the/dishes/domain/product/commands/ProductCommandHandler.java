@@ -25,13 +25,13 @@ public class ProductCommandHandler {
     }
 
     public void handle(UpdateDetailCommand updateDetailCommand) {
-        Product product = eventRepository.find(updateDetailCommand.getProductId());
+        Product product = eventRepository.get(updateDetailCommand.getProductId());
         product.updateDetail(updateDetailCommand.getDetail());
         eventRepository.save(product, Repository.OptimisticLock.ENABLED);
     }
 
     public void handle(UpdatePriceCommand updatePriceCommand) {
-        Product product = eventRepository.find(updatePriceCommand.getProductId());
+        Product product = eventRepository.get(updatePriceCommand.getProductId());
         product.updatePrice(updatePriceCommand.getPrice());
         eventRepository.save(product, Repository.OptimisticLock.ENABLED);
     }

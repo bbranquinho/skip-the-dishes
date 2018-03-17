@@ -1,3 +1,4 @@
+# Datasource
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/skip_the_dishes
@@ -19,3 +20,12 @@ spring:
   h2:
     console:
       enabled: true
+
+# Event Store
+event:
+  store:
+    user: admin
+    password: changeit
+    url: http://localhost:2113
+  sourcing:
+    subscribe: 2

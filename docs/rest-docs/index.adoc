@@ -69,16 +69,16 @@ In a POST request, the response will contain an entity describing or containing 
 === Create
 
 Call curl:
-include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/create a cart for a customer/curl-request.adoc[]
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/Create a product with success/curl-request.adoc[]
 
 Request:
-include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/create a cart for a customer/http-request.adoc[]
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/Create a product with success/http-request.adoc[]
 
 Request fields:
-include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/create a cart for a customer/request-fields.adoc[]
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/Create a product with success/request-fields.adoc[]
 
 Response success:
-include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/create a cart for a customer/http-response.adoc[]
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/Create a product with success/http-response.adoc[]
 
 Response fields:
-include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/create a cart for a customer/response-fields.adoc[]
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/Create a product with success/response-fields.adoc[]

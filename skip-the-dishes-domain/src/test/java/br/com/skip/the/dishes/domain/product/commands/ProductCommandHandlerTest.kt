@@ -17,7 +17,7 @@ class ProductCommandHandlerTest {
     private val product = mock<Product> {  }
 
     private val eventRepository = mock<EventStoreRepository<Product>> {
-        on { find(any()) } doReturn product
+        on { get(any()) } doReturn product
     }
 
     private val productCommandHandle = ProductCommandHandler(eventRepository)
@@ -41,7 +41,7 @@ class ProductCommandHandlerTest {
         productCommandHandle.handle(updateDetailCommand)
 
         verify(product).updateDetail(eq(detail))
-        verify(eventRepository).find(eq(productId))
+        verify(eventRepository).get(eq(productId))
         verify(eventRepository).save(any(), eq(Repository.OptimisticLock.ENABLED))
     }
 
@@ -52,7 +52,7 @@ class ProductCommandHandlerTest {
         productCommandHandle.handle(updatePriceCommand)
 
         verify(product).updatePrice(eq(20.10))
-        verify(eventRepository).find(eq(productId))
+        verify(eventRepository).get(eq(productId))
         verify(eventRepository).save(any(), eq(Repository.OptimisticLock.ENABLED))
     }
 

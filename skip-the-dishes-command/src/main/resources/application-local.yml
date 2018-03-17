@@ -1,1 +1,8 @@
-spring:
+# Event Store
+event:
+  store:
+    user: admin
+    password: changeit
+    url: http://localhost:2113
+  sourcing:
+    subscribe: 2

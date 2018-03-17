@@ -2,6 +2,7 @@ package br.com.skip.the.dishes.query.repository.product;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -19,6 +20,7 @@ public class ProductEntity {
 
     private double price;
 
+    @Column(name = "store_id")
     private String storeId;
 
     public ProductEntity() {

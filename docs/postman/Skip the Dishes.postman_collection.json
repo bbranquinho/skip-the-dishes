@@ -5,7 +5,9 @@
 	"order": [
 		"109b77a7-f93b-7f46-4985-f94fa488ae34",
 		"310448df-5b17-83d8-5611-81525b6f3192",
-		"fa3f6d7e-3499-a70a-5b61-82fad73c8d43"
+		"fa3f6d7e-3499-a70a-5b61-82fad73c8d43",
+		"cd2bb31f-780f-4857-99fa-a9299b1c0c1a",
+		"612a064f-d114-7917-d83e-5b7bf26f0c26"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -35,7 +37,7 @@
 			"tests": "tests[\"Status code is 201\"] = responseCode.code === 201;\n\nvar product = JSON.parse(responseBody);\n\npostman.setEnvironmentVariable(\"productId\", product.productId);\n",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1521307215265,
+			"time": 1521317014023,
 			"name": "Create Product",
 			"description": "",
 			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
@@ -70,6 +72,70 @@
 			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
 			"responses": [],
 			"rawModeData": "{\n\t\"name\":\"My Rice\",\n\t\"description\": \"My delicious rice\"\n}\n"
+		},
+		{
+			"id": "612a064f-d114-7917-d83e-5b7bf26f0c26",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8081/api/v1/product/e6ebc96a-dead-4258-a3de-04a32a2d28ec",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1521317598189,
+			"name": "Find Product by ID",
+			"description": "",
+			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
+			"responses": []
+		},
+		{
+			"id": "cd2bb31f-780f-4857-99fa-a9299b1c0c1a",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8081/api/v1/product?page=0&size=10&fields=name,description",
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "size",
+					"value": "10",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "fields",
+					"value": "name,description",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1521316973601,
+			"name": "Find Products (pageable)",
+			"description": "",
+			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
+			"responses": []
 		},
 		{
 			"id": "fa3f6d7e-3499-a70a-5b61-82fad73c8d43",
