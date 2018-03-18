@@ -2,7 +2,6 @@ package br.com.skip.the.dishes.domain.order.commands;
 
 import br.com.skip.the.dishes.domain.order.Order;
 import br.com.zup.eventsourcing.core.AggregateId;
-import br.com.zup.eventsourcing.core.Repository;
 import br.com.zup.eventsourcing.eventstore.EventStoreRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +18,7 @@ public class OrderCommandHandler {
 
     public Order createOrder(CreateOrderCommand command) {
         Order order = new Order(command.getCustomerId());
-        eventRepository.save(order, Repository.OptimisticLock.ENABLED);
+        eventRepository.save(order);
 
         logger.debug("Product [{}] created.", order.getOrderId());
 

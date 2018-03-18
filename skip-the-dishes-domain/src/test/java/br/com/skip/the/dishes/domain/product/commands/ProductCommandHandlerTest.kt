@@ -3,7 +3,6 @@ package br.com.skip.the.dishes.domain.product.commands
 import br.com.skip.the.dishes.domain.product.Detail
 import br.com.skip.the.dishes.domain.product.Product
 import br.com.zup.eventsourcing.core.AggregateId
-import br.com.zup.eventsourcing.core.Repository
 import br.com.zup.eventsourcing.eventstore.EventStoreRepository
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.doReturn
@@ -14,7 +13,7 @@ import org.junit.Test
 
 class ProductCommandHandlerTest {
 
-    private val product = mock<Product> {  }
+    private val product = mock<Product> { }
 
     private val eventRepository = mock<EventStoreRepository<Product>> {
         on { get(any()) } doReturn product
@@ -30,7 +29,7 @@ class ProductCommandHandlerTest {
 
         productCommandHandle.handle(createProductCommand)
 
-        verify(eventRepository).save(any(), eq(Repository.OptimisticLock.ENABLED))
+        verify(eventRepository).save(any())
     }
 
     @Test
@@ -42,7 +41,7 @@ class ProductCommandHandlerTest {
 
         verify(product).updateDetail(eq(detail))
         verify(eventRepository).get(eq(productId))
-        verify(eventRepository).save(any(), eq(Repository.OptimisticLock.ENABLED))
+        verify(eventRepository).save(any())
     }
 
     @Test
@@ -53,7 +52,7 @@ class ProductCommandHandlerTest {
 
         verify(product).updatePrice(eq(20.10))
         verify(eventRepository).get(eq(productId))
-        verify(eventRepository).save(any(), eq(Repository.OptimisticLock.ENABLED))
+        verify(eventRepository).save(any())
     }
 
 }

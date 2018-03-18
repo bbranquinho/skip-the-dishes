@@ -32,42 +32,21 @@
         <kotlin.version>1.2.30</kotlin.version>
         <junit.version>4.12</junit.version>
         <mockito.kotlin.version>1.5.0</mockito.kotlin.version>
-        <event.sourcing.version>1.0.3</event.sourcing.version>
+        <event.sourcing.version>0.0.16-SNAPSHOT</event.sourcing.version>
         <log4j.version>2.10.0</log4j.version>
         <hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
         <hibernate.validator.version>6.0.8.Final</hibernate.validator.version>
         <feign.version>9.5.0</feign.version>
     </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>internal-zup</id>
-            <name>Internal Release Repository</name>
-            <url>http://archiva.aws.zup.com.br/repository/internal/</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots-zup</id>
-            <name>Internal Snapshot Repository</name>
-            <url>http://archiva.aws.zup.com.br/repository/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <repositories>
         <repository>
-            <id>internal-zup</id>
+            <id>internal</id>
             <name>Internal Release Repository</name>
-            <url>http://archiva.aws.zup.com.br/repository/internal/</url>
-        </repository>
-
-        <repository>
-            <id>snapshots-zup</id>
-            <name>Internal Snapshot Repository</name>
-            <url>http://archiva.aws.zup.com.br/repository/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
+            <url>https://mymavenrepo.com/repo/WN1x5OeWnaLvUMM5bBwk/</url>
         </repository>
     </repositories>
+
     <dependencies>
         <!-- Test -->
         <dependency>

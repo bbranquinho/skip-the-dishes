@@ -6,11 +6,11 @@
 
     <changeSet id="201803172013-1" author="augusto.branquinho">
         <createTable tableName="order_item">
-            <column name="order_id" type="bigint">
+            <column name="order_id" type="varchar(36)">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
 
-            <column name="product_id" type="int">
+            <column name="product_id" type="varchar(36)">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
         </createTable>
@@ -21,7 +21,7 @@
                                  baseTableName="order_item"
                                  constraintName="fk_order_item_pk"
                                  referencedColumnNames="id"
-                                 referencedTableName="order"/>
+                                 referencedTableName="orders"/>
 
         <addForeignKeyConstraint baseColumnNames="product_id"
                                  baseTableName="order_item"

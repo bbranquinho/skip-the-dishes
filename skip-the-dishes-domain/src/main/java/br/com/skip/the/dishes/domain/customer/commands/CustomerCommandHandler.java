@@ -14,7 +14,7 @@ public class CustomerCommandHandler {
 
     public Customer handle(CreateCustomerCommand command) {
         Customer customer = new Customer(command.getName(), command.getEmail(), command.getAddress(), command.getPassword());
-        this.eventRepository.save(customer, Repository.OptimisticLock.ENABLED);
+        this.eventRepository.save(customer);
         return customer;
     }
 }
