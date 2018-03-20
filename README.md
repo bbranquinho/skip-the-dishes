@@ -30,11 +30,11 @@ It is available a collection on Postman that can be used for testing purpose, th
 
 ## 4. Architecture
 
-The proposed solution uses some concepts like DDD, Event Sourcing, and CQRS.
+Many things are considered for the proposed solution, the following figure shows all modules and their relations.
 
 ![Basic Architecture](https://user-images.githubusercontent.com/1013619/37637807-8a7c911e-2be8-11e8-9a09-71091317f36a.png)
 
-Follows some details about these concepts:
+The proposed solution uses some concepts like DDD, Event Sourcing, and CQRS. Some details of these concepts are available in:
 
     **DDD**: https://martinfowler.com/bliki/CQRS.html
     **Event Sourcing**: https://martinfowler.com/eaaDev/EventSourcing.html
