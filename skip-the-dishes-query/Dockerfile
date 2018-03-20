@@ -5,7 +5,6 @@ ENV APP skip-the-dishes-query.jar
 
 RUN mkdir -p /opt
 COPY ${APP_TARGET}/${APP} /opt
-COPY docker.conf /opt
 
 ENV JAVA_OPTS=""
-ENTRYPOINT [ "sh", "-c", "java ${JAVA_OPTS} -Dconfig.resource=file:/opt/docker.conf -jar /opt/$APP" ]
+ENTRYPOINT [ "sh", "-c", "java ${JAVA_OPTS} ${CONFIG_RESOURCE} -jar /opt/$APP" ]

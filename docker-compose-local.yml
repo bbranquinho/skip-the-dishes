@@ -24,6 +24,7 @@ services:
     build: skip-the-dishes-command/
     environment:
       - EVENT_STORE_URL=http://event-store:2113
+      - CONFIG_RESOURCE=-Dconfig.resource=file:/home/application/docker-event-store.conf
     ports:
       - "8081:8081"
     depends_on:
@@ -39,6 +40,7 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/skip_the_dishes
       - EVENT_STORE_URL=http://event-store:2113
+      - CONFIG_RESOURCE=-Dconfig.resource=file:/home/application/docker-event-store.conf
     ports:
       - "8082:8082"
     depends_on:
