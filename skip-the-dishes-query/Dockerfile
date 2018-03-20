@@ -1,9 +1,11 @@
-FROM openjdk:8-jre-alpine
+FROM maven:3.5.0-jdk-8
 
 ENV APP_TARGET target
 ENV APP skip-the-dishes-query.jar
 
 RUN mkdir -p /opt
 COPY ${APP_TARGET}/${APP} /opt
+COPY docker.conf /opt
 
-CMD exec java ${JAVA_OPTS} -Xms${JAVA_XMS:-512m} -Xmx${JAVA_XMX:-1024m} -jar /opt/${APP}
+ENV JAVA_OPTS=""
+ENTRYPOINT [ "sh", "-c", "java ${JAVA_OPTS} -Dconfig.resource=file:/opt/docker.conf -jar /opt/$APP" ]
