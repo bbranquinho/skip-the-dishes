@@ -16,7 +16,7 @@ public class OrderCommandHandler {
         this.eventRepository = eventRepository;
     }
 
-    public Order createOrder(CreateOrderCommand command) {
+    public Order handle(CreateOrderCommand command) {
         Order order = new Order(command.getCustomerId());
         eventRepository.save(order);
 
@@ -25,7 +25,7 @@ public class OrderCommandHandler {
         return order;
     }
 
-    public void addProduct(AddProductCommand addProductCommand) {
+    public void handle(AddProductCommand addProductCommand) {
         Order order = findOrder(addProductCommand.getOrderId());
 
         order.addProduct(addProductCommand.getProductId());
@@ -33,7 +33,7 @@ public class OrderCommandHandler {
         logger.debug("Product [{}] added on order [{}].", addProductCommand.getProductId(), order.getOrderId());
     }
 
-    public void deleteProduct(DeleteProductCommand deleteProductCommand) {
+    public void handle(DeleteProductCommand deleteProductCommand) {
         Order order = findOrder(deleteProductCommand.getOrderId());
 
         order.deleteProduct(deleteProductCommand.getProductId());
@@ -41,17 +41,17 @@ public class OrderCommandHandler {
         logger.debug("Product [{}] deleted for order [{}].", deleteProductCommand.getProductId(), order.getOrderId());
     }
 
-    public void cancelOrder(CancelOrderCommand cancelOrderCommand) {
+    public void handle(CancelOrderCommand cancelOrderCommand) {
         Order order = findOrder(cancelOrderCommand.getOrderId());
         order.cancelOrder();
     }
 
-    public void requestOrder(RequestOrderCommand requestOrderCommand) {
+    public void handle(RequestOrderCommand requestOrderCommand) {
         Order order = findOrder(requestOrderCommand.getOrderId());
         order.requestOrder();
     }
 
-    public void updateDeliveryAddress(UpdateDeliveryAddressCommand updateDeliveryAddressCommand) {
+    public void handle(UpdateDeliveryAddressCommand updateDeliveryAddressCommand) {
         Order order = findOrder(updateDeliveryAddressCommand.getOrderId());
         order.updateDeliveryAddress(updateDeliveryAddressCommand.getDeliveryAddress());
     }

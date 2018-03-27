@@ -24,7 +24,7 @@ public class OrderResource implements OrderApi {
     @Override
     public CreateResponse create(@RequestBody @Valid CreateRequest createRequest) {
         CreateOrderCommand command = new CreateOrderCommand(createRequest.getCustomerId());
-        Order order = orderCommandHandler.createOrder(command);
+        Order order = orderCommandHandler.handle(command);
         return new CreateResponse(order.getOrderId());
     }
 
@@ -32,26 +32,26 @@ public class OrderResource implements OrderApi {
     public void addProduct(@PathVariable("id") @Valid @Size(max = ORDER_ID_SIZE) String id,
                            @RequestBody @Valid ProductRequest productRequest) {
         AddProductCommand command = new AddProductCommand(id, productRequest.getProductId());
-        orderCommandHandler.addProduct(command);
+        orderCommandHandler.handle(command);
     }
 
     @Override
     public void deleteProduct(@PathVariable("id") @Valid @Size(max = ORDER_ID_SIZE) String id,
                               @RequestBody @Valid ProductRequest productRequest) {
         DeleteProductCommand command = new DeleteProductCommand(id, productRequest.getProductId());
-        orderCommandHandler.deleteProduct(command);
+        orderCommandHandler.handle(command);
     }
 
     @Override
     public void cancelOrder(@PathVariable("id") @Valid @Size(max = ORDER_ID_SIZE) String id) {
         CancelOrderCommand command = new CancelOrderCommand(id);
-        orderCommandHandler.cancelOrder(command);
+        orderCommandHandler.handle(command);
     }
 
     @Override
     public void requestOrder(@PathVariable("id") @Valid @Size(max = ORDER_ID_SIZE) String id) {
         RequestOrderCommand command = new RequestOrderCommand(id);
-        orderCommandHandler.requestOrder(command);
+        orderCommandHandler.handle(command);
     }
 
     @Override
@@ -59,7 +59,7 @@ public class OrderResource implements OrderApi {
                                       @RequestBody @Valid DeliveryAddressRequest deliveryAddressRequest) {
         DeliveryAddress deliveryAddress = new DeliveryAddress(deliveryAddressRequest.getDeliveryAddress(), deliveryAddressRequest.getContact());
         UpdateDeliveryAddressCommand command = new UpdateDeliveryAddressCommand(id, deliveryAddress);
-        orderCommandHandler.updateDeliveryAddress(command);
+        orderCommandHandler.handle(command);
     }
 
 }

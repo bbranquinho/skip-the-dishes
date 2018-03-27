@@ -110,7 +110,7 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <!-- Event Sourcing - TODO: Add dependency in a repository. -->
+            <!-- Event Sourcing -->
             <dependency>
                 <groupId>br.com.zup</groupId>
                 <artifactId>event-sourcing-core</artifactId>

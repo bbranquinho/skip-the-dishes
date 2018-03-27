@@ -4,6 +4,7 @@ import br.com.skip.the.dishes.domain.customer.Customer
 import br.com.skip.the.dishes.domain.customer.commands.CreateCustomerCommand
 import br.com.skip.the.dishes.domain.customer.commands.CustomerCommandHandler
 import br.com.skip.the.dishes.domain.order.Order
+import br.com.skip.the.dishes.domain.order.commands.CreateOrderCommand
 import br.com.skip.the.dishes.domain.order.commands.OrderCommandHandler
 import br.com.skip.the.dishes.domain.product.Product
 import br.com.skip.the.dishes.domain.product.commands.CreateProductCommand
@@ -30,7 +31,7 @@ class CommandResourceConfigTest {
     private val order = Order("user@skip.ca")
 
     private val orderCommandHandler = mock<OrderCommandHandler> {
-        on { createOrder(any()) } doReturn order
+        on { handle(any<CreateOrderCommand>()) } doReturn order
     }
 
     private val customer = Customer("Customer 1", "skip@skip.ca", "Address", "pass")
