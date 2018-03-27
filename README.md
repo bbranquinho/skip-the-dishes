@@ -36,23 +36,23 @@ Many things are considered for the proposed solution, the following figure shows
 
 The proposed solution uses some concepts like DDD, Event Sourcing, and CQRS. Some details of these concepts are available in:
 
-    DDD: https://martinfowler.com/tags/domain%20driven%20design.html
-    CQRS: https://martinfowler.com/bliki/CQRS.html
-    Event Sourcing: https://martinfowler.com/eaaDev/EventSourcing.html and https://www.youtube.com/watch?v=cISNDnwlSgw
-        Benefits
-            History based queries
-            Audit log by design
-            Immutability
-            User intent
-            Decoupling
-            Resilience
-        Challenges
-            Complexity
-            Snapshots
-            Upcasting
-            Race conditions
-            Event contracts
-            Eventual consistency
+DDD: https://martinfowler.com/tags/domain%20driven%20design.html
+CQRS: https://martinfowler.com/bliki/CQRS.html
+Event Sourcing: https://martinfowler.com/eaaDev/EventSourcing.html and https://www.youtube.com/watch?v=cISNDnwlSgw
+    Benefits
+        History based queries
+        Audit log by design
+        Immutability
+        User intent
+        Decoupling
+        Resilience
+    Challenges
+        Complexity
+        Snapshots
+        Upcasting
+        Race conditions
+        Event contracts
+        Eventual consistency
 
 ## 5. Technologies
 
