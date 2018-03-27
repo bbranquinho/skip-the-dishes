@@ -4,7 +4,7 @@
 
 Challenge: Develop an API that "Allow Authentication", "Query Products", "Receive Orders", "Cancel an Order", "Get Order Status" and "Store data in a database". Besides these tasks is required that the solution support scalability and in few months support millions of users.  
   
-### **Observation: I'm so sorry, but I spent more time than expected to solve a problem during the challenge, for such reason I could not finish the task of authentication.** 
+### **Observation: I'm so sorry, but I spent more time than expected to solve a problem during the challenge, for such reason I could not finish the task of authentication. For vanhackaton uses the "vanhackaton" branch.** 
 
 ## 1. Requirements
 
@@ -36,9 +36,23 @@ Many things are considered for the proposed solution, the following figure shows
 
 The proposed solution uses some concepts like DDD, Event Sourcing, and CQRS. Some details of these concepts are available in:
 
-    **DDD**: https://martinfowler.com/bliki/CQRS.html
-    **Event Sourcing**: https://martinfowler.com/eaaDev/EventSourcing.html
-    **CQRS**: https://martinfowler.com/bliki/CQRS.html
+    DDD: https://martinfowler.com/tags/domain%20driven%20design.html
+    CQRS: https://martinfowler.com/bliki/CQRS.html
+    Event Sourcing: https://martinfowler.com/eaaDev/EventSourcing.html and https://www.youtube.com/watch?v=cISNDnwlSgw
+        Benefits
+            History based queries
+            Audit log by design
+            Immutability
+            User intent
+            Decoupling
+            Resilience
+        Challenges
+            Complexity
+            Snapshots
+            Upcasting
+            Race conditions
+            Event contracts
+            Eventual consistency
 
 ## 5. Technologies
 
@@ -46,11 +60,12 @@ The following technologies are used for the basic architecture:
 
     1. Java
     2. Spring Boot
-    3. Event Store Database (developed by Greg Young)
-    4. PostgreSQL
-    5. Liquibase
-    6. Mockito
-    7. Mockito Kolin
-    8. Kotlin
-    9. Feign
+    3. Spring Data JPA (Spring JDBCTemplate is a better option and can be used for new developments)
+    4. Event Store Database (developed by Greg Young)
+    5. PostgreSQL
+    6. Liquibase
+    7. Mockito
+    8. Mockito Kolin
+    9. Kotlin
+    10. Feign
 
