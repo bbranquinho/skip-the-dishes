@@ -30,6 +30,8 @@ It is available a collection on Postman that can be used for testing purpose, th
 
 Based on unitary tests an API documentation based on Spring REST Docs is available in http://relaxed-bartik-5077aa.bitballoon.com/ or on folder *docs/resources/skip-the-dishes-resources.html*.
 
+Once the application is running all events can be found at http://localhost:2113/
+
 ## 4. Architecture
 
 Many things are considered for the proposed solution, the following figures show a domain architecture and a basic conceptual architecture based on domain modules.
