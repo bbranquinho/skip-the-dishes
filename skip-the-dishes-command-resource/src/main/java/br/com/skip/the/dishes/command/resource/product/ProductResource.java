@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import static br.com.skip.the.dishes.domain.utils.DomainConstants.PRODUCT_ID_SIZE;
 
 @RestController
 public class ProductResource implements ProductApi {
@@ -31,14 +35,17 @@ public class ProductResource implements ProductApi {
     }
 
     @Override
-    public void updateDetail(@PathVariable("id") String id, @RequestBody  @Valid DetailRequest detailRequest) {
+    public void updateDetail(@PathVariable("id") @Valid @NotNull @Size(max = PRODUCT_ID_SIZE) String id,
+                             @RequestBody @Valid DetailRequest detailRequest) {
         AggregateId productId = new AggregateId(id);
-        UpdateDetailCommand command = new UpdateDetailCommand(productId, new Detail(detailRequest.getName(), detailRequest.getDescription()));
+        UpdateDetailCommand command = new UpdateDetailCommand(productId, new Detail(detailRequest.getName(),
+                detailRequest.getDescription()));
         productCommandHandler.handle(command);
     }
 
     @Override
-    public void updatePrice(@PathVariable("id") String id, @RequestBody  @Valid PriceRequest priceRequest) {
+    public void updatePrice(@PathVariable("id") @Valid @NotNull @Size(max = PRODUCT_ID_SIZE) String id,
+                            @RequestBody @Valid PriceRequest priceRequest) {
         AggregateId productId = new AggregateId(id);
         UpdatePriceCommand command = new UpdatePriceCommand(productId, priceRequest.getPrice());
         productCommandHandler.handle(command);

@@ -1,3 +1,4 @@
+# Spring
 spring:
   profiles:
     active: local

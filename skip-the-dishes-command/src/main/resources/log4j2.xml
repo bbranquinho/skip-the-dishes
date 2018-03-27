@@ -9,6 +9,9 @@
         <Logger name="br.com.skip.the.dishes" level="DEBUG" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
+        <Logger name="org.springframework" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
         <Logger name="feign" level="DEBUG" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>

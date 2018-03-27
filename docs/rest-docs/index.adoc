@@ -65,6 +65,71 @@ In a POST request, the response will contain an entity describing or containing 
 [[product]]
 == Product
 
+[[resources-product-find]]
+=== Find
+
+This resource will find the first page with size equal 20.
+
+Call curl:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products without specifying a page/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products without specifying a page/http-request.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products without specifying a page/http-response.adoc[]
+
+Response body:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products without specifying a page/response-body.adoc[]
+
+Response fields:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products without specifying a page/response-fields.adoc[]
+
+Response headers:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products without specifying a page/response-headers.adoc[]
+
+[[resources-product-find-pageable]]
+=== Find Pageable
+
+Call curl:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products for page 0 and size 3/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products for page 0 and size 3/http-request.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products for page 0 and size 3/http-response.adoc[]
+
+Response body:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products for page 0 and size 3/response-body.adoc[]
+
+Response fields:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products for page 0 and size 3/response-fields.adoc[]
+
+Response headers:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find products for page 0 and size 3/response-headers.adoc[]
+
+[[resources-product-find-by-id]]
+=== Find by ID
+
+Call curl:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find product by -i-d/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find product by -i-d/http-request.adoc[]
+
+Request Parameters:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find product by -i-d/path-parameters.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find product by -i-d/http-response.adoc[]
+
+Response body:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find product by -i-d/response-body.adoc[]
+
+Response fields:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find product by -i-d/response-fields.adoc[]
+
 [[resources-product-create]]
 === Create
 
@@ -82,3 +147,201 @@ include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/C
 
 Response fields:
 include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/Create a product with success/response-fields.adoc[]
+
+[[resources-product-update-details]]
+=== Update Details
+
+Call curl:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update details for a product/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update details for a product/http-request.adoc[]
+
+Request fields:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update details for a product/request-fields.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update details for a product/http-response.adoc[]
+
+[[resources-product-update-price]]
+=== Update Price
+
+Call curl:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update price for a product/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update price for a product/http-request.adoc[]
+
+Request fields:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update price for a product/request-fields.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update price for a product/http-response.adoc[]
+
+
+[[order]]
+== Order
+
+
+[[resources-order-find]]
+=== Find
+
+This resource will find the first page with size equal 20.
+
+Call curl:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders without specifying a page/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders without specifying a page/http-request.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders without specifying a page/http-response.adoc[]
+
+Response body:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders without specifying a page/response-body.adoc[]
+
+Response fields:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders without specifying a page/response-fields.adoc[]
+
+Response headers:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders without specifying a page/response-headers.adoc[]
+
+[[resources-order-find-pageable]]
+=== Find Pageable
+
+Call curl:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders for page 0 and size 3/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders for page 0 and size 3/http-request.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders for page 0 and size 3/http-response.adoc[]
+
+Response body:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders for page 0 and size 3/response-body.adoc[]
+
+Response fields:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders for page 0 and size 3/response-fields.adoc[]
+
+Response headers:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find orders for page 0 and size 3/response-headers.adoc[]
+
+[[resources-order-find-by-id]]
+=== Find by ID
+
+Call curl:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find order by -i-d/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find order by -i-d/http-request.adoc[]
+
+Request Parameters:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find order by -i-d/path-parameters.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find order by -i-d/http-response.adoc[]
+
+Response body:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find order by -i-d/response-body.adoc[]
+
+Response fields:
+include::{snippets}/skip-the-dishes-query-resource/target/generated-snippets/find order by -i-d/response-fields.adoc[]
+
+[[resources-product-create]]
+=== Create
+
+Call curl:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/create a new order for a specific customer/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/create a new order for a specific customer/http-request.adoc[]
+
+Request fields:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/create a new order for a specific customer/request-fields.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/create a new order for a specific customer/http-response.adoc[]
+
+Response fields:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/create a new order for a specific customer/response-fields.adoc[]
+
+
+[[resources-order-add-product]]
+=== Add Product
+
+Call curl:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/add a product for an order/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/add a product for an order/http-request.adoc[]
+
+Request fields:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/add a product for an order/request-fields.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/add a product for an order/http-response.adoc[]
+
+
+[[resources-order-delete-product]]
+=== Delete Product
+
+Call curl:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/delete a product from an order/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/delete a product from an order/http-request.adoc[]
+
+Request fields:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/delete a product from an order/request-fields.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/delete a product from an order/http-response.adoc[]
+
+
+[[resources-order-cancel]]
+=== Cancel an Order
+
+Call curl:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/cancel an order/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/cancel an order/http-request.adoc[]
+
+Path fields:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/cancel an order/path-parameters.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/cancel an order/http-response.adoc[]
+
+
+[[resources-order-request]]
+=== Request an Order
+
+Call curl:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/request an order that will be done and delivered/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/request an order that will be done and delivered/http-request.adoc[]
+
+Path fields:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/request an order that will be done and delivered/path-parameters.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/request an order that will be done and delivered/http-response.adoc[]
+
+
+[[resources-order-update-delivery-address]]
+=== Update Delivery Address
+
+Call curl:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update the delivery address for an order/curl-request.adoc[]
+
+Request:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update the delivery address for an order/http-request.adoc[]
+
+Path fields:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update the delivery address for an order/path-parameters.adoc[]
+
+Response success:
+include::{snippets}/skip-the-dishes-command-resource/target/generated-snippets/update the delivery address for an order/http-response.adoc[]

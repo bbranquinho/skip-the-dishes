@@ -3,23 +3,36 @@ package br.com.skip.the.dishes.query.repository.order;
 import br.com.skip.the.dishes.query.repository.product.ProductEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
+
+import static br.com.skip.the.dishes.domain.utils.DomainConstants.*;
 
 @Entity
 @Table(name = "orders")
 public class OrderEntity {
 
     @Id
+    @NotNull
+    @Size(max = ORDER_ID_SIZE)
     private String id;
 
+    @NotNull
+    @Size(max = CUSTOMER_ID_SIZE)
     @Column(name = "customer_id")
     private String customerId;
 
+    @NotNull
+    @Size(max = ORDER_DELIVERY_ADDRESS_SIZE)
     @Column(name = "delivery_address")
     private String deliveryAddress;
 
+    @NotNull
+    @Size(max = ORDER_CONTACT_SIZE)
     private String contact;
 
+    @NotNull
     private String status;
 
     @ManyToMany(fetch = FetchType.EAGER)

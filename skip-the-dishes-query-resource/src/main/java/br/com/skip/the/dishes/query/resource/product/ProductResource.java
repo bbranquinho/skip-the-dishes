@@ -32,7 +32,7 @@ public class ProductResource implements ProductApi {
     @Override
     public ResponseEntity<List<ProductEntity>> findAll(@RequestParam(name = "page", required = false) Integer page,
                                                        @RequestParam(name = "size", required = false) Integer size,
-                                                       @RequestParam(name = "fields", required = false) String fields) {
+                                                       @RequestParam(name = "sortFields", required = false) String sortFields) {
         if (page == null) {
             page = DEFAULT_PAGE;
         }
@@ -43,8 +43,8 @@ public class ProductResource implements ProductApi {
 
         Page<ProductEntity> productPage;
 
-        if ((fields != null) && (!fields.trim().isEmpty())) {
-            productPage = productRepository.findAll(PageRequest.of(page, size, Sort.by(fields.split(","))));
+        if ((sortFields != null) && (!sortFields.trim().isEmpty())) {
+            productPage = productRepository.findAll(PageRequest.of(page, size, Sort.by(sortFields.split(","))));
         } else {
             productPage = productRepository.findAll(PageRequest.of(page, size));
         }
@@ -58,7 +58,7 @@ public class ProductResource implements ProductApi {
     public ResponseEntity<ProductEntity> findById(@PathVariable("id") String id) {
         return productRepository
                 .findById(id)
-                .map(p -> new ResponseEntity<ProductEntity>(p, HttpStatus.OK))
-                .orElse(new ResponseEntity<ProductEntity>(HttpStatus.NOT_FOUND));
+                .map(p -> new ResponseEntity(p, HttpStatus.OK))
+                .orElse(new ResponseEntity(HttpStatus.NOT_FOUND));
     }
 }
