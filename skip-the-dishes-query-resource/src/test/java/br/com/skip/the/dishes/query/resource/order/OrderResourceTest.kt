@@ -8,7 +8,6 @@ import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders
 import org.springframework.restdocs.payload.PayloadDocumentation
 import org.springframework.restdocs.request.RequestDocumentation
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 class OrderResourceTest : QueryResourceBaseTest() {
@@ -33,7 +32,6 @@ class OrderResourceTest : QueryResourceBaseTest() {
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andExpect(MockMvcResultMatchers.header().string("X-Total-Count", "6"))
                 .andExpect(MockMvcResultMatchers.header().string("Link", """</api/v1/order?page=0&size=20>; rel="last",</api/v1/order?page=0&size=20>; rel="first""""))
-                .andDo(MockMvcResultHandlers.print())
                 .andDo(
                         MockMvcRestDocumentation.document("{method-name}",
                                 HeaderDocumentation.responseHeaders(
@@ -68,7 +66,6 @@ class OrderResourceTest : QueryResourceBaseTest() {
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andExpect(MockMvcResultMatchers.header().string("X-Total-Count", "6"))
                 .andExpect(MockMvcResultMatchers.header().string("Link", """</api/v1/order?page=1&size=3>; rel="next",</api/v1/order?page=1&size=3>; rel="last",</api/v1/order?page=0&size=3>; rel="first""""))
-                .andDo(MockMvcResultHandlers.print())
                 .andDo(
                         MockMvcRestDocumentation.document("{method-name}",
                                 RequestDocumentation.requestParameters(
@@ -100,7 +97,6 @@ class OrderResourceTest : QueryResourceBaseTest() {
                                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 )
                 .andExpect(MockMvcResultMatchers.status().isOk)
-                .andDo(MockMvcResultHandlers.print())
                 .andDo(
                         MockMvcRestDocumentation.document("{method-name}",
                                 RequestDocumentation.pathParameters(
