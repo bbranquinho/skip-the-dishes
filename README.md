@@ -36,12 +36,9 @@ Many things are considered for the proposed solution, the following figure shows
 
 The proposed solution uses some concepts like DDD, Event Sourcing, and CQRS. Some details of these concepts are available in:
 
-#### DDD: https://martinfowler.com/tags/domain%20driven%20design.html
-
-#### CQRS: https://martinfowler.com/bliki/CQRS.html
-
-#### Event Sourcing: https://martinfowler.com/eaaDev/EventSourcing.html and https://www.youtube.com/watch?v=cISNDnwlSgw
-    
+  #### DDD: https://martinfowler.com/tags/domain%20driven%20design.html
+  #### CQRS: https://martinfowler.com/bliki/CQRS.html
+  #### Event Sourcing: https://martinfowler.com/eaaDev/EventSourcing.html and https://www.youtube.com/watch?v=cISNDnwlSg
     Benefits
         History based queries
         Audit log by design
@@ -64,11 +61,11 @@ The following technologies are used for the basic architecture:
     1. Java
     2. Spring Boot
     3. Spring Data JPA (Spring JDBCTemplate is a better option and can be used for new developments)
-    4. Event Store Database (developed by Greg Young)
-    5. PostgreSQL
-    6. Liquibase
-    7. Mockito
-    8. Mockito Kolin
-    9. Kotlin
-    10. Feign
-
+    4. Spring REST Docs
+    5. Event Store Database (developed by Greg Young)
+    6. PostgreSQL
+    7. Liquibase
+    8. Mockito
+    9. Mockito Kolin
+    10. Kotlin
+    11. Feign
