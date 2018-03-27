@@ -28,7 +28,7 @@ $ docker-compose -f docker-compose-local.yml up
 
 It is available a collection on Postman that can be used for testing purpose, this Postman can be found on folder *docs/postman*. 
 
-Based on unitary tests an API documentation based on Spring REST Docs is available in http://relaxed-bartik-5077aa.bitballoon.com/ or in folder *docs/resources/skip-the-dishes-resources.html*.
+Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://relaxed-bartik-5077aa.bitballoon.com/ or on folder *docs/resources/skip-the-dishes-resources.html*.
 
 Once the application is running all events can be found at http://localhost:2113/
 
