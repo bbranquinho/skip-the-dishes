@@ -23,8 +23,9 @@ public class CommandConfig {
     }
 
     @Bean
-    public OrderCommandHandler orderCommandHandler(EventStoreRepository<Order> orderEventRepository) {
-        return new OrderCommandHandler(orderEventRepository);
+    public OrderCommandHandler orderCommandHandler(EventStoreRepository<Order> orderEventRepository,
+                                                   EventStoreRepository<Product> productEventRepository) {
+        return new OrderCommandHandler(orderEventRepository, productEventRepository);
     }
 
     @Bean

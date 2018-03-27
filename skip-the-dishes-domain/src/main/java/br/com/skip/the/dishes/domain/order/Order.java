@@ -4,9 +4,11 @@ import br.com.skip.the.dishes.domain.order.commons.AttemptChangeOrderStatusExcep
 import br.com.skip.the.dishes.domain.order.commons.OrderApplier;
 import br.com.skip.the.dishes.domain.order.commons.OrderEvent;
 import br.com.skip.the.dishes.domain.order.events.*;
+import br.com.skip.the.dishes.domain.product.Product;
 import br.com.zup.eventsourcing.core.AggregateId;
 import br.com.zup.eventsourcing.core.AggregateRoot;
 import br.com.zup.eventsourcing.core.Event;
+import br.com.zup.eventsourcing.eventstore.EventStoreRepository;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -38,7 +40,9 @@ public class Order extends AggregateRoot {
         ((OrderEvent)event).accept(id, applier);
     }
 
-    public void addProduct(String productId) {
+    public void addProduct(String productId, EventStoreRepository<Product> eventRepository) {
+        eventRepository.get(new AggregateId(productId));
+
         attemptChangeOrder();
 
         ProductAdded productAddedEvent = new ProductAdded(productId);
