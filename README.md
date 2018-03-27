@@ -77,9 +77,9 @@ The following technologies are used for the "domain module" development.
     5. Event Store Database (developed by Greg Young)
     6. PostgreSQL
     7. Liquibase
-    8. Mockito
-    9. Mockito Kolin
-    10. Kotlin
+    8. Kotlin (tests and POJOs)
+    9. Mockito
+    10. Mockito Kolin
     11. Feign
     12. Docker
     13. Docker Compose
