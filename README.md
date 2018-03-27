@@ -24,9 +24,11 @@ $ mvn clean install
 $ docker-compose -f docker-compose-local.yml up
 ```
 
-## 3. Testing
+## 3. Test and Documentation
 
-It is available a collection on Postman that can be used for testing purpose, this Postman can be found on folder *docs/postman*.
+It is available a collection on Postman that can be used for testing purpose, this Postman can be found on folder *docs/postman*. 
+
+It is available in http://relaxed-bartik-5077aa.bitballoon.com/ and *docs/resources/skip-the-dishes-resources.html* an API document.
 
 ## 4. Architecture
 
