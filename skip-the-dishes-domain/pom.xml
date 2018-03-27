@@ -39,5 +39,11 @@
             <groupId>br.com.zup</groupId>
             <artifactId>event-store-connector</artifactId>
         </dependency>
+
+        <!-- Others -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
     </dependencies>
 </project>

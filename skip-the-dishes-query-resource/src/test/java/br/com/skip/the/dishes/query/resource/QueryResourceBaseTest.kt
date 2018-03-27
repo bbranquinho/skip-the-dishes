@@ -1,4 +1,5 @@
-package br.com.skip.the.dishes.command.resource
+package br.com.skip.the.dishes.query.resource
+
 
 import org.junit.Before
 import org.junit.Rule
@@ -20,8 +21,8 @@ import org.springframework.web.context.WebApplicationContext
 @WebAppConfiguration
 @SpringBootTest
 @RunWith(SpringRunner::class)
-@ContextConfiguration(classes = [CommandResourceConfigTest::class])
-abstract class CommandResourceBaseTest {
+@ContextConfiguration(classes = [QueryResourceConfigTest::class])
+abstract class QueryResourceBaseTest {
 
     @Rule
     @JvmField

@@ -1,0 +1,19 @@
+# Datasource
+spring:
+  datasource:
+    url: jdbc:h2:file:./target/easy_buying;DB_CLOSE_DELAY=-1
+    username: skip_the_dishes
+    password: skip_the_dishes
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    change-log: classpath:config/liquibase/master.xml
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+  h2:
+    console:
+      enabled: true

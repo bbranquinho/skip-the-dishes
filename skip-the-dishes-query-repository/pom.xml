@@ -12,6 +12,12 @@
     <artifactId>skip-the-dishes-query-repository</artifactId>
 
     <dependencies>
+        <!-- Modules -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>skip-the-dishes-domain</artifactId>
+        </dependency>
+
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
