@@ -34,14 +34,14 @@ public class OrderEventHandler implements EventHandler {
 
     private class Applier implements OrderApplier {
         @Override
-        public void apply(AggregateId aggregateId, OrderCreated orderCreated) {
+        public void on(AggregateId aggregateId, OrderCreated orderCreated) {
             OrderEntity orderEntity = new OrderEntity(aggregateId.getValue(), orderCreated.getCustomerId());
             orderEntity.setStatus(orderCreated.getStatus().toString());
             orderRepository.save(orderEntity);
         }
 
         @Override
-        public void apply(AggregateId aggregateId, ProductAdded productAdded) {
+        public void on(AggregateId aggregateId, ProductAdded productAdded) {
             OrderEntity orderEntity = orderRepository.findById(aggregateId.getValue()).get();
             ProductEntity productEntity = productRepository.findById(productAdded.getProductId()).get();
 
@@ -51,7 +51,7 @@ public class OrderEventHandler implements EventHandler {
         }
 
         @Override
-        public void apply(AggregateId aggregateId, ProductDeleted productDeleted) {
+        public void on(AggregateId aggregateId, ProductDeleted productDeleted) {
             OrderEntity orderEntity = orderRepository.findById(aggregateId.getValue()).get();
             ProductEntity productEntity = productRepository.findById(productDeleted.getProductId()).get();
 
@@ -61,21 +61,21 @@ public class OrderEventHandler implements EventHandler {
         }
 
         @Override
-        public void apply(AggregateId aggregateId, OrderCancelled orderCancelled) {
+        public void on(AggregateId aggregateId, OrderCancelled orderCancelled) {
             OrderEntity orderEntity = orderRepository.findById(aggregateId.getValue()).get();
             orderEntity.setStatus(orderCancelled.getOrderStatus().toString());
             orderRepository.save(orderEntity);
         }
 
         @Override
-        public void apply(AggregateId aggregateId, OrderRequested orderRequested) {
+        public void on(AggregateId aggregateId, OrderRequested orderRequested) {
             OrderEntity orderEntity = orderRepository.findById(aggregateId.getValue()).get();
             orderEntity.setStatus(orderRequested.getOrderStatus().toString());
             orderRepository.save(orderEntity);
         }
 
         @Override
-        public void apply(AggregateId aggregateId, DeliveryAddressUpdated deliveryAddressUpdated) {
+        public void on(AggregateId aggregateId, DeliveryAddressUpdated deliveryAddressUpdated) {
             OrderEntity orderEntity = orderRepository.findById(aggregateId.getValue()).get();
             DeliveryAddress deliveryAddress = deliveryAddressUpdated.getDeliveryAddress();
             orderEntity.setDeliveryAddress(deliveryAddress.getDeliveryAddress());

@@ -39,7 +39,7 @@ public class Customer extends AggregateRoot {
     private class Applier implements CustomerApplier {
 
         @Override
-        public void apply(AggregateId aggregateId, CustomerCreated customerCreated) {
+        public void on(AggregateId aggregateId, CustomerCreated customerCreated) {
             id = new AggregateId(customerCreated.getCustomerId());
             name = customerCreated.getName();
             email = customerCreated.getEmail();

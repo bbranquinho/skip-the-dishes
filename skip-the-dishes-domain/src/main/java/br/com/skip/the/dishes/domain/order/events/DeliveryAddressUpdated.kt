@@ -8,6 +8,6 @@ import br.com.zup.eventsourcing.core.Event
 
 data class DeliveryAddressUpdated(val deliveryAddress: DeliveryAddress) : Event(), OrderEvent {
     override fun accept(aggregateId: AggregateId?, orderApplier: OrderApplier) {
-        orderApplier.apply(aggregateId,this)
+        orderApplier.on(aggregateId,this)
     }
 }

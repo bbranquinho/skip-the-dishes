@@ -80,34 +80,34 @@ public class Order extends AggregateRoot {
     private class Applier implements OrderApplier {
 
         @Override
-        public void apply(AggregateId aggregateId, OrderCreated orderCreated) {
+        public void on(AggregateId aggregateId, OrderCreated orderCreated) {
             id = new AggregateId(orderCreated.getOrderId());
             customerId = orderCreated.getCustomerId();
             status = orderCreated.getStatus();
         }
 
         @Override
-        public void apply(AggregateId aggregateId, ProductAdded productAdded) {
+        public void on(AggregateId aggregateId, ProductAdded productAdded) {
             products.add(productAdded.getProductId());
         }
 
         @Override
-        public void apply(AggregateId aggregateId, ProductDeleted productDeleted) {
+        public void on(AggregateId aggregateId, ProductDeleted productDeleted) {
             products.remove(productDeleted.getProductId());
         }
 
         @Override
-        public void apply(AggregateId aggregateId, OrderCancelled orderCancelled) {
+        public void on(AggregateId aggregateId, OrderCancelled orderCancelled) {
             status = orderCancelled.getOrderStatus();
         }
 
         @Override
-        public void apply(AggregateId aggregateId, OrderRequested orderRequested) {
+        public void on(AggregateId aggregateId, OrderRequested orderRequested) {
             status = orderRequested.getOrderStatus();
         }
 
         @Override
-        public void apply(AggregateId aggregateId, DeliveryAddressUpdated deliveryAddressUpdated) {
+        public void on(AggregateId aggregateId, DeliveryAddressUpdated deliveryAddressUpdated) {
             deliveryAddress = deliveryAddressUpdated.getDeliveryAddress();
         }
 

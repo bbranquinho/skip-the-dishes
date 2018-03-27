@@ -8,6 +8,6 @@ import br.com.zup.eventsourcing.core.Event
 
 data class DetailUpdated(val detail: Detail) : Event(), ProductEvent {
     override fun accept(aggregateId: AggregateId, productApplier: ProductApplier) {
-        productApplier.apply(aggregateId,this)
+        productApplier.on(aggregateId,this)
     }
 }

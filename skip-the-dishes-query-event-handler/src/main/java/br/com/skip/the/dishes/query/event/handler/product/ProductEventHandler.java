@@ -28,21 +28,21 @@ public class ProductEventHandler implements EventHandler {
 
     private class Applier implements ProductApplier {
         @Override
-        public void apply(AggregateId aggregateId, ProductCreated productCreated) {
+        public void on(AggregateId aggregateId, ProductCreated productCreated) {
             ProductEntity productEntity = new ProductEntity(aggregateId.getValue(), productCreated.getName(),
                     productCreated.getDescription(), productCreated.getPrice(), productCreated.getStoreId());
             productRepository.save(productEntity);
         }
 
         @Override
-        public void apply(AggregateId aggregateId, PriceUpdated priceUpdated) {
+        public void on(AggregateId aggregateId, PriceUpdated priceUpdated) {
             ProductEntity productEntity = productRepository.findById(aggregateId.getValue()).get();
             productEntity.setPrice(priceUpdated.getPrice());
             productRepository.save(productEntity);
         }
 
         @Override
-        public void apply(AggregateId aggregateId, DetailUpdated detailUpdated) {
+        public void on(AggregateId aggregateId, DetailUpdated detailUpdated) {
             ProductEntity productEntity = productRepository.findById(aggregateId.getValue()).get();
             productEntity.setName(detailUpdated.getDetail().getName());
             productEntity.setDescription(detailUpdated.getDetail().getDescription());

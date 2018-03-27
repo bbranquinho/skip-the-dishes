@@ -8,7 +8,7 @@ import br.com.zup.eventsourcing.core.Event
 
 data class OrderRequested(val orderStatus: OrderStatus) : Event(), OrderEvent {
     override fun accept(aggregateId: AggregateId?, orderApplier: OrderApplier) {
-        orderApplier.apply(aggregateId,this)
+        orderApplier.on(aggregateId,this)
     }
 }
 

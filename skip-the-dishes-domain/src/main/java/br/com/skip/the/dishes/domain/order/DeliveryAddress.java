@@ -1,5 +1,7 @@
 package br.com.skip.the.dishes.domain.order;
 
+import java.util.Objects;
+
 public class DeliveryAddress {
 
     private String deliveryAddress;
@@ -28,5 +30,20 @@ public class DeliveryAddress {
 
     public void setContact(String contact) {
         this.contact = contact;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DeliveryAddress that = (DeliveryAddress) o;
+        return Objects.equals(deliveryAddress, that.deliveryAddress) &&
+                Objects.equals(contact, that.contact);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(deliveryAddress, contact);
     }
 }

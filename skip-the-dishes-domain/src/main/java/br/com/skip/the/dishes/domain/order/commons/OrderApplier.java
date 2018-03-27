@@ -5,16 +5,16 @@ import br.com.zup.eventsourcing.core.AggregateId;
 
 public interface OrderApplier {
 
-    void apply(AggregateId aggregateId, OrderCreated orderCreated);
+    void on(AggregateId aggregateId, OrderCreated orderCreated);
 
-    void apply(AggregateId aggregateId, ProductAdded productAdded);
+    void on(AggregateId aggregateId, ProductAdded productAdded);
 
-    void apply(AggregateId aggregateId, ProductDeleted productDeleted);
+    void on(AggregateId aggregateId, ProductDeleted productDeleted);
 
-    void apply(AggregateId aggregateId, OrderCancelled orderCancelled);
+    void on(AggregateId aggregateId, OrderCancelled orderCancelled);
 
-    void apply(AggregateId aggregateId, OrderRequested orderRequested);
+    void on(AggregateId aggregateId, OrderRequested orderRequested);
 
-    void apply(AggregateId aggregateId, DeliveryAddressUpdated deliveryAddressUpdated);
+    void on(AggregateId aggregateId, DeliveryAddressUpdated deliveryAddressUpdated);
 
 }

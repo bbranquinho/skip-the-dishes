@@ -7,6 +7,6 @@ import br.com.zup.eventsourcing.core.Event
 
 data class CustomerCreated(val customerId: String, val name: String, val email: String, val address: String, val password: String) : Event(), CustomerEvent {
     override fun accept(aggregateId: AggregateId?, customerApplier: CustomerApplier) {
-        customerApplier.apply(aggregateId, this)
+        customerApplier.on(aggregateId, this)
     }
 }

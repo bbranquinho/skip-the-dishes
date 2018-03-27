@@ -47,7 +47,7 @@ public class Product extends AggregateRoot {
     private class Applier implements ProductApplier {
 
         @Override
-        public void apply(AggregateId aggregateId, ProductCreated productCreated) {
+        public void on(AggregateId aggregateId, ProductCreated productCreated) {
             id = new AggregateId(productCreated.getProductId());
             detail = new Detail(productCreated.getName(), productCreated.getDescription());
             storeId = productCreated.getStoreId();
@@ -55,12 +55,12 @@ public class Product extends AggregateRoot {
         }
 
         @Override
-        public void apply(AggregateId aggregateId, PriceUpdated priceUpdated) {
+        public void on(AggregateId aggregateId, PriceUpdated priceUpdated) {
             price = priceUpdated.getPrice();
         }
 
         @Override
-        public void apply(AggregateId aggregateId, DetailUpdated detailUpdated) {
+        public void on(AggregateId aggregateId, DetailUpdated detailUpdated) {
             detail = detailUpdated.getDetail();
         }
 

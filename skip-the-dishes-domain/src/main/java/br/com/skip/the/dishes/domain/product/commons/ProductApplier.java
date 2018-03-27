@@ -7,10 +7,10 @@ import br.com.zup.eventsourcing.core.AggregateId;
 
 public interface ProductApplier {
 
-    void apply(AggregateId aggregateId, ProductCreated productCreated);
+    void on(AggregateId aggregateId, ProductCreated productCreated);
 
-    void apply(AggregateId aggregateId, PriceUpdated priceUpdated);
+    void on(AggregateId aggregateId, PriceUpdated priceUpdated);
 
-    void apply(AggregateId aggregateId, DetailUpdated detailUpdated);
+    void on(AggregateId aggregateId, DetailUpdated detailUpdated);
 
 }

@@ -5,6 +5,6 @@ import br.com.zup.eventsourcing.core.AggregateId;
 
 public interface CustomerApplier {
 
-    void apply(AggregateId aggregateId, CustomerCreated customerCreated);
+    void on(AggregateId aggregateId, CustomerCreated customerCreated);
 
 }
