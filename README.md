@@ -66,7 +66,7 @@ The following figure shows a basic architecture for the project. Some things are
 
 ## 5. Technologies
 
-The following technologies are used for the basic architecture: 
+The following technologies are used for the "domain module" development.
 
     1. Java
     2. Spring Boot
