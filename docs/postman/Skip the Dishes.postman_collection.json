@@ -25,7 +25,9 @@
 				"cf40618c-6506-d585-c910-4ae747076c6e",
 				"c80b6d58-d8d3-d450-da6c-fa7cbef24c78",
 				"c57e58d3-8db3-a2c6-163e-feee416ed454",
-				"a886d26d-53d4-823c-03e0-90d0a5db8515"
+				"a886d26d-53d4-823c-03e0-90d0a5db8515",
+				"b9354198-e20b-d983-c2d9-9a423579ec83",
+				"2589943c-da1c-2b58-3237-7befc69d30f6"
 			],
 			"owner": 0,
 			"folders_order": [],
@@ -39,8 +41,7 @@
 				"109b77a7-f93b-7f46-4985-f94fa488ae34",
 				"310448df-5b17-83d8-5611-81525b6f3192",
 				"fa3f6d7e-3499-a70a-5b61-82fad73c8d43",
-				"cd2bb31f-780f-4857-99fa-a9299b1c0c1a",
-				"612a064f-d114-7917-d83e-5b7bf26f0c26"
+				"cd2bb31f-780f-4857-99fa-a9299b1c0c1a"
 			],
 			"owner": 0,
 			"folders_order": [],
@@ -122,6 +123,28 @@
 			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
 			"responses": [],
 			"rawModeData": "{\n\t\"name\": \"Rice\",\n\t\"description\": \"Delicious rice\",\n\t\"storeId\": \"24ee7c24-2a06-11e8-b467-0ed5f89f718b\",\n\t\"price\": 10.3\n}"
+		},
+		{
+			"id": "2589943c-da1c-2b58-3237-7befc69d30f6",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8082/api/v1/order/{{orderId}}",
+			"folder": "1991e51e-32e2-9e3b-085e-6f09b13b8f44",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1522157475659,
+			"name": "Find Order by ID",
+			"description": "",
+			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
+			"responses": []
 		},
 		{
 			"id": "310448df-5b17-83d8-5611-81525b6f3192",
@@ -238,6 +261,44 @@
 			"rawModeData": "{\n\t\"deliveryAddress\": \"Street Xy\",\n\t\"contact\": \"553499999999\"\n}\n"
 		},
 		{
+			"id": "b9354198-e20b-d983-c2d9-9a423579ec83",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8082/api/v1/order?page=0&size=10",
+			"folder": "1f2bc9a7-15b5-95f8-9963-e811328ab927",
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "size",
+					"value": "10",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1522156710321,
+			"name": "Find Order (pageable)",
+			"description": "",
+			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
+			"responses": [],
+			"folderId": "1f2bc9a7-15b5-95f8-9963-e811328ab927"
+		},
+		{
 			"id": "c23a9999-ff71-7b33-c843-d8aaf813dede",
 			"headers": "Content-Type: application/json\n",
 			"headerData": [
@@ -285,14 +346,14 @@
 			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"method": "POST",
+			"method": "PATCH",
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1522127133359,
+			"time": 1522133864611,
 			"name": "Cancel Order",
 			"description": "",
 			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
@@ -316,14 +377,14 @@
 			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"method": "POST",
+			"method": "PATCH",
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1522127124921,
+			"time": 1522133857177,
 			"name": "Request Order",
 			"description": "",
 			"collectionId": "50aa2f89-04ef-e19f-5302-763dd651fddc",
