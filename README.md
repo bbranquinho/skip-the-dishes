@@ -30,10 +30,6 @@ It is available a collection on Postman that can be used for testing purpose, th
 
 ## 4. Architecture
 
-Many things are considered for the proposed solution, the following figure shows all modules and their relations.
-
-![Basic Architecture](https://user-images.githubusercontent.com/1013619/37637807-8a7c911e-2be8-11e8-9a09-71091317f36a.png)
-
 The proposed solution uses some concepts like DDD, Event Sourcing, and CQRS. Some details of these concepts are available in:
 
   #### DDD: https://martinfowler.com/tags/domain%20driven%20design.html
@@ -53,6 +49,16 @@ The proposed solution uses some concepts like DDD, Event Sourcing, and CQRS. Som
         Race conditions
         Event contracts
         Eventual consistency
+
+Many things are considered for the proposed solution, the following figures show a domain architecture and a basic conceptual architecture based on domain modules.
+
+### 4.1. Domain Architecture
+
+![Domain Architecture](https://user-images.githubusercontent.com/1013619/37637807-8a7c911e-2be8-11e8-9a09-71091317f36a.png)
+
+### 4.2. Basic Architecture
+
+![Basic Architecture](https://user-images.githubusercontent.com/1013619/37944917-0263b764-3154-11e8-830c-5644490113f1.png)
 
 ## 5. Technologies
 
