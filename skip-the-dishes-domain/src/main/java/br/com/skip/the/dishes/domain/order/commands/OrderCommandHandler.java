@@ -30,6 +30,8 @@ public class OrderCommandHandler {
 
         order.addProduct(addProductCommand.getProductId());
 
+        eventRepository.save(order);
+
         logger.debug("Product [{}] added on order [{}].", addProductCommand.getProductId(), order.getOrderId());
     }
 
@@ -38,22 +40,30 @@ public class OrderCommandHandler {
 
         order.deleteProduct(deleteProductCommand.getProductId());
 
+        eventRepository.save(order);
+
         logger.debug("Product [{}] deleted for order [{}].", deleteProductCommand.getProductId(), order.getOrderId());
     }
 
     public void handle(CancelOrderCommand cancelOrderCommand) {
         Order order = findOrder(cancelOrderCommand.getOrderId());
         order.cancelOrder();
+
+        eventRepository.save(order);
     }
 
     public void handle(RequestOrderCommand requestOrderCommand) {
         Order order = findOrder(requestOrderCommand.getOrderId());
         order.requestOrder();
+
+        eventRepository.save(order);
     }
 
     public void handle(UpdateDeliveryAddressCommand updateDeliveryAddressCommand) {
         Order order = findOrder(updateDeliveryAddressCommand.getOrderId());
         order.updateDeliveryAddress(updateDeliveryAddressCommand.getDeliveryAddress());
+
+        eventRepository.save(order);
     }
 
     private Order findOrder(String orderId) {
