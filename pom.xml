@@ -24,6 +24,8 @@
         <module>skip-the-dishes-query-repository</module>
         <module>skip-the-dishes-query-event-handler</module>
         <module>skip-the-dishes-query-resource</module>
+        <module>skip-the-dishes-security</module>
+        <module>skip-the-dishes-security-application</module>
     </modules>
 
     <properties>
@@ -48,6 +50,13 @@
     </repositories>
 
     <dependencies>
+        <!-- Kotlin -->
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+
         <!-- Test -->
         <dependency>
             <groupId>junit</groupId>

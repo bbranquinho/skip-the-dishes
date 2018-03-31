@@ -1,8 +1,5 @@
 package br.com.skip.the.dishes.command.resource
 
-import br.com.skip.the.dishes.domain.customer.Customer
-import br.com.skip.the.dishes.domain.customer.commands.CreateCustomerCommand
-import br.com.skip.the.dishes.domain.customer.commands.CustomerCommandHandler
 import br.com.skip.the.dishes.domain.order.Order
 import br.com.skip.the.dishes.domain.order.commands.CreateOrderCommand
 import br.com.skip.the.dishes.domain.order.commands.OrderCommandHandler
@@ -34,12 +31,6 @@ class CommandResourceConfigTest {
         on { handle(any<CreateOrderCommand>()) } doReturn order
     }
 
-    private val customer = Customer("Customer 1", "skip@skip.ca", "Address", "pass")
-
-    private val customerCommandHandler = mock<CustomerCommandHandler> {
-        on { handle(any<CreateCustomerCommand>()) } doReturn customer
-    }
-
     @Bean
     fun productCommandHandler(): ProductCommandHandler =
             productCommandHandler
@@ -47,9 +38,5 @@ class CommandResourceConfigTest {
     @Bean
     fun orderCommandHandler(): OrderCommandHandler =
             orderCommandHandler
-
-    @Bean
-    fun customerCommandHandler(): CustomerCommandHandler =
-            customerCommandHandler
 
 }
