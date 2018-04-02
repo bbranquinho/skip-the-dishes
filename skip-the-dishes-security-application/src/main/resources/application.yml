@@ -8,4 +8,4 @@ spring:
 # Server
 server:
   version: @project.version@
-  port: 8081
+  port: 8083

@@ -39,6 +39,8 @@
         <hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
         <hibernate.validator.version>6.0.8.Final</hibernate.validator.version>
         <feign.version>9.5.0</feign.version>
+        <spring.security.oauth2.autoconfigure.version>2.0.0.RELEASE</spring.security.oauth2.autoconfigure.version>
+        <spring.security.oauth.version>2.3.0.RELEASE</spring.security.oauth.version>
     </properties>
 
     <repositories>
@@ -54,6 +56,12 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-reflect</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
 
@@ -86,6 +94,12 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>skip-the-dishes-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>skip-the-dishes-security</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -169,6 +183,19 @@
                 <artifactId>feign-jackson</artifactId>
                 <version>${feign.version}</version>
             </dependency>
+
+            <!-- Spring Security -->
+            <dependency>
+                <groupId>org.springframework.security.oauth.boot</groupId>
+                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+                <version>${spring.security.oauth2.autoconfigure.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${spring.security.oauth.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -198,7 +225,6 @@
                             <sourceDirs>
                                 <source>src/main/java</source>
                                 <source>src/main/kotlin</source>
-                                <source>target/generated-sources/annotations</source>
                             </sourceDirs>
                         </configuration>
                     </execution>

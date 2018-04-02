@@ -15,6 +15,11 @@
         <!-- Modules -->
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>skip-the-dishes-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>skip-the-dishes-query-resource</artifactId>
         </dependency>
 

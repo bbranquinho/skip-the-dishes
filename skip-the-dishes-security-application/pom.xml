@@ -12,6 +12,12 @@
     <artifactId>skip-the-dishes-security-application</artifactId>
 
     <dependencies>
+        <!-- Modules -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>skip-the-dishes-security</artifactId>
+        </dependency>
+
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -26,6 +32,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-actuator</artifactId>
+        </dependency>
+
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
     </dependencies>
 
