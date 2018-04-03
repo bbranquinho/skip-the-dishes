@@ -26,9 +26,8 @@ class SecurityApplicationConfig(
         @Value("\${skip.key-store.password}") val password: String) {
 
     @Bean
-    fun getStandardPasswordEncoder(): PasswordEncoder {
-        return BCryptPasswordEncoder()
-    }
+    fun getStandardPasswordEncoder(): PasswordEncoder =
+        BCryptPasswordEncoder()
 
     @Bean
     fun accessTokenConverter(): JwtAccessTokenConverter {

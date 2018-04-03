@@ -10,14 +10,24 @@ services:
       - POSTGRES_PASSWORD=skip_the_dishes
       - MAX_CONNECTIONS=300
 
+  postgres-security:
+    image: postgres:9.6
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=skip_the_dishes_security
+      - POSTGRES_USER=skip_the_dishes_security
+      - POSTGRES_PASSWORD=skip_the_dishes_security
+      - MAX_CONNECTIONS=300
+
   event-store:
     image: eventstore/eventstore
     ports:
       - "2113:2113"
       - "1113:1113"
 
-  skip_command:
-    image: skip/command
+  skip-command:
+    image: skip/command-app
     volumes:
       - .:/home/application
     command: ["/home/application/wait-services.sh"]
@@ -31,8 +41,8 @@ services:
       - postgres
       - event-store
 
-  skip_query:
-    image: skip/query
+  skip-query:
+    image: skip/query-app
     volumes:
       - .:/home/application
     command: ["/home/application/wait-services.sh"]
@@ -46,3 +56,16 @@ services:
     depends_on:
       - postgres
       - event-store
+
+  skip-security:
+    image: skip/security-app
+    volumes:
+      - .:/home/application
+    command: ["/home/application/wait-services.sh"]
+    build: skip-the-dishes-security-application/
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-security:5432/skip_the_dishes_security
+    ports:
+      - "8083:8083"
+    depends_on:
+      - postgres-security
