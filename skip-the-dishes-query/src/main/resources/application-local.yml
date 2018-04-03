@@ -17,9 +17,6 @@ spring:
     url: ${spring.datasource.url}
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
-  h2:
-    console:
-      enabled: true
 
 # Event Store
 event:
@@ -45,3 +42,4 @@ security:
            Qve4q7h2kPIxdvFbeUoyrfaw2HL/9PKO5vtgEInDH3cuiQ2IPXIDhBNKLTWdZPq4
            DQIDAQAB
            -----END PUBLIC KEY-----
+

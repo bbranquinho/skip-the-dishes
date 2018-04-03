@@ -3,19 +3,16 @@ package br.com.skip.the.dishes.security
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
-import org.springframework.context.annotation.PropertySource
 import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer
 import org.springframework.security.config.http.SessionCreationPolicy
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter
 
 typealias Matchers = ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry
 
 @ComponentScan
 @EnableConfigurationProperties(SkipSecurityProperties::class)
-@EnableResourceServer
 @Configuration
 class SkipSecurityAutoConfiguration(val skipSecurityProperties: SkipSecurityProperties) : ResourceServerConfigurerAdapter() {
 

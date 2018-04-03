@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="201804030313-1" author="augusto.branquinho">
+        <createTable tableName="users">
+            <column name="id" type="bigint(20)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+
+            <column name="email" type="varchar(255)">
+                <constraints unique="true" nullable="false" />
+            </column>
+
+            <column name="name" type="varchar(80)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="password" type="varchar(60)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="201804030313-2" author="augusto.branquinho">
+        <loadData encoding="UTF-8" file="config/liquibase/users.csv" separator=";" tableName="users"/>
+    </changeSet>
+
+</databaseChangeLog>

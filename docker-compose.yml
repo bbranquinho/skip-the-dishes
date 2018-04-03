@@ -10,6 +10,16 @@ services:
       - POSTGRES_PASSWORD=skip_the_dishes
       - MAX_CONNECTIONS=300
 
+  postgres-security:
+    image: postgres:9.6
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=skip_the_dishes_security
+      - POSTGRES_USER=skip_the_dishes_security
+      - POSTGRES_PASSWORD=skip_the_dishes_security
+      - MAX_CONNECTIONS=300
+
   event-store:
     image: eventstore/eventstore
     ports:
