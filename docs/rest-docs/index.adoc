@@ -62,6 +62,16 @@ In a POST request, the response will contain an entity describing or containing 
 [[resources]]
 = Resources
 
+For all request is required a valid JWT token.
+
+|===
+|Name|Description
+
+|`Authorization`
+|JWT token based on RSA signature.
+
+|===
+
 [[product]]
 == Product
 

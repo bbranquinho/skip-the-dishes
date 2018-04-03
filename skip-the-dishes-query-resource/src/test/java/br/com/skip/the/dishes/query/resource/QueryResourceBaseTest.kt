@@ -7,6 +7,7 @@ import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.restdocs.JUnitRestDocumentation
+import org.springframework.restdocs.headers.HeaderDocumentation
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation
 import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler
 import org.springframework.restdocs.operation.preprocess.Preprocessors
@@ -24,6 +25,11 @@ import org.springframework.web.context.WebApplicationContext
 @ContextConfiguration(classes = [QueryResourceConfigTest::class])
 abstract class QueryResourceBaseTest {
 
+    companion object {
+        const val TOKEN = "Bearer \${JWT}"
+        const val TOKEN_DESCRIPTION = "JWT token based on RSA signature."
+    }
+
     @Rule
     @JvmField
     final val restDocumentation = JUnitRestDocumentation("target/generated-snippets")
@@ -37,15 +43,23 @@ abstract class QueryResourceBaseTest {
 
     @Before
     fun setUp() {
-        document = MockMvcRestDocumentation.document(
-                "{method-name}",
-                Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),
-                Preprocessors.preprocessResponse(Preprocessors.prettyPrint())
-        )
-        mockMvc = MockMvcBuilders.webAppContextSetup(this.context)
-                .apply<DefaultMockMvcBuilder>(MockMvcRestDocumentation.documentationConfiguration(this.restDocumentation))
-                .alwaysDo<DefaultMockMvcBuilder>(this.document).build()
+        document = MockMvcRestDocumentation
+                .document(
+                        "{method-name}",
+                        Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),
+                        Preprocessors.preprocessResponse(Preprocessors.prettyPrint())
+                )
+                .document(
+                        HeaderDocumentation.requestHeaders(
+                                HeaderDocumentation.headerWithName("Authorization").description(TOKEN_DESCRIPTION)
+                        )
+                )
 
+        mockMvc = MockMvcBuilders
+                .webAppContextSetup(this.context)
+                .apply<DefaultMockMvcBuilder>(MockMvcRestDocumentation.documentationConfiguration(this.restDocumentation))
+                .alwaysDo<DefaultMockMvcBuilder>(this.document)
+                .build()
     }
 
 }
