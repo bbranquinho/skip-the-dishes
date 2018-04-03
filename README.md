@@ -58,7 +58,7 @@ The proposed solution uses some concepts like DDD, Event Sourcing, and CQRS. Som
         Event contracts
         Eventual consistency
 
-![Domain Architecture](https://user-images.githubusercontent.com/1013619/37637807-8a7c911e-2be8-11e8-9a09-71091317f36a.png)
+![Domain Architecture](https://user-images.githubusercontent.com/1013619/38263042-4e14ca1c-3745-11e8-8d10-a780d8f0c04c.png)
 
 ### 4.2. Basic Architecture
 
