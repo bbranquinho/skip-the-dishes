@@ -1,26 +1,22 @@
 package br.com.skip.the.dishes.command;
 
-import br.com.skip.the.dishes.domain.customer.Customer;
-import br.com.skip.the.dishes.domain.customer.commands.CustomerCommandHandler;
 import br.com.skip.the.dishes.domain.order.Order;
 import br.com.skip.the.dishes.domain.order.commands.OrderCommandHandler;
 import br.com.skip.the.dishes.domain.product.Product;
 import br.com.skip.the.dishes.domain.product.commands.ProductCommandHandler;
 import br.com.zup.eventsourcing.eventstore.EventStoreRepository;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
-@SpringBootApplication
-@ComponentScan(basePackages =  { "br.com.skip.the.dishes.command" })
+@SpringBootApplication(exclude = UserDetailsServiceAutoConfiguration.class)
+@ComponentScan(basePackages = {"br.com.skip.the.dishes.command"})
+@EnableResourceServer
 @Configuration
 public class CommandConfig {
-
-    @Bean
-    public CustomerCommandHandler customerCommandHandler(EventStoreRepository<Customer> customerEventRepository) {
-        return new CustomerCommandHandler(customerEventRepository);
-    }
 
     @Bean
     public OrderCommandHandler orderCommandHandler(EventStoreRepository<Order> orderEventRepository,

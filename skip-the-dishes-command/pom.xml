@@ -28,6 +28,11 @@
             <artifactId>skip-the-dishes-command-resource</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>skip-the-dishes-security</artifactId>
+        </dependency>
+
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

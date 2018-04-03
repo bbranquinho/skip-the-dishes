@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>skip-the-dishes-query</artifactId>
+    <artifactId>skip-the-dishes-security-application</artifactId>
 
     <dependencies>
         <!-- Modules -->
@@ -18,19 +18,36 @@
             <artifactId>skip-the-dishes-security</artifactId>
         </dependency>
 
+        <!-- Spring -->
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>skip-the-dishes-query-resource</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>skip-the-dishes-query-event-handler</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>skip-the-dishes-query-repository</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Liquibase -->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
         </dependency>
 
         <!-- Database Driver -->
@@ -39,10 +56,10 @@
             <artifactId>postgresql</artifactId>
         </dependency>
 
-        <!-- Spring -->
+        <!-- Spring Security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
     </dependencies>
 
@@ -56,4 +73,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

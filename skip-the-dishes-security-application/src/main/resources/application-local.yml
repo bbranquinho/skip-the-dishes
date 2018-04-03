@@ -1,0 +1,45 @@
+# Datasource
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/skip_the_dishes_security
+    username: skip_the_dishes_security
+    password: skip_the_dishes_security
+    driverClassName: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        temp.use_jdbc_metadata_defaults: false
+  liquibase:
+    change-log: classpath:config/liquibase/master.xml
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+
+# Security
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: secret
+    resource:
+      jwt:
+        key-value: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv0b9r3G/sYmhSHH3/Vsr
+          sP2RoxFUwygbwSrNHaamlHUhYtvGv7Vx+IC6gV2f+bSYvEiiqUfnHageUZrgSP3O
+          +DCgWD7rIjfU0GoBM3NOZfRKG7/A0hQ/Kdzac/ZgNWFj/OdM6lWYEAsf02eYZ92Y
+          zJjrlaLkDrnuTOJnla2JnAmhpVVoLA5ynuqKspgCA9XoiE3Fsf4WDnhTr69f8RjJ
+          LaOem+hdVZdwja/MtUNBcQmNl7NOaPWTlikPmboys8OzW7FTcEJvqEkKu7B0KmET
+          Qve4q7h2kPIxdvFbeUoyrfaw2HL/9PKO5vtgEInDH3cuiQ2IPXIDhBNKLTWdZPq4
+          DQIDAQAB
+          -----END PUBLIC KEY-----
+
+# Skip
+skip:
+  key-store:
+    alias: skipdishes
+    jsk-file: skip-the-dishes.jks
+    password: skipdishes

@@ -3,9 +3,22 @@ spring:
   profiles:
     active: local
   application:
-    name: Skip the Dishes (Command)
+    name: Skip the Dishes - Order (Command)
 
 # Server
 server:
   version: @project.version@
   port: 8081
+
+# Constraints
+skip:
+  publicConstraints:
+    - pattern: /**
+      methods: OPTIONS
+  constraints:
+    - pattern: /api/v1/product/**
+      roles:
+        - role: PRODUCT
+    - pattern: /api/v1/order/**
+      roles:
+        - role: ORDER

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="201804030314-1" author="augusto.branquinho">
+        <createTable tableName="user_role">
+            <column name="user_id" type="bigint(20)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+
+            <column name="role_id" type="bigint(20)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="201804030314-2" author="augusto.branquinho">
+        <addForeignKeyConstraint constraintName="fk_user_role_id"
+                                 baseColumnNames="user_id"
+                                 baseTableName="user_role"
+                                 referencedColumnNames="id"
+                                 referencedTableName="users"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT" />
+
+        <addForeignKeyConstraint constraintName="fk_role_user_id"
+                                 baseColumnNames="role_id"
+                                 baseTableName="user_role"
+                                 referencedColumnNames="id"
+                                 referencedTableName="role"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT" />
+    </changeSet>
+
+    <changeSet id="201804030314-3" author="augusto.branquinho">
+        <loadData encoding="UTF-8" file="config/liquibase/user_roles.csv" separator=";" tableName="user_role"/>
+    </changeSet>
+
+</databaseChangeLog>

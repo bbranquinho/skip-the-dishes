@@ -1,0 +1,19 @@
+# Spring
+spring:
+  profiles:
+    active: local
+  application:
+    name: Skip the Dishes - Security
+  data:
+    rest:
+      base-path: /api/v1
+
+# Server
+server:
+  version: @project.version@
+  port: 8083
+
+# Constraints
+skip:
+  publicConstraints:
+    - pattern: /**
