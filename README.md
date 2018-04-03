@@ -1,10 +1,10 @@
-# Skip the Dishes - Vanhack Hackathon
+# Skip the Dishes - Vanhackathon
 
 [![Build Status](https://travis-ci.org/bbranquinho/skip-the-dishes.svg?branch=master)](https://travis-ci.org/bbranquinho/skip-the-dishes) [![codecov](https://codecov.io/gh/bbranquinho/skip-the-dishes/branch/master/graph/badge.svg)](https://codecov.io/gh/bbranquinho/skip-the-dishes)
 
 Challenge: Develop an API that "Allow Authentication", "Query Products", "Receive Orders", "Cancel an Order", "Get Order Status" and "Store data in a database". Besides these tasks is required that the solution support scalability and in few months support millions of users.  
   
-### **Observation: I'm so sorry, but I spent more time than expected to solve a problem during the challenge, for such reason I could not finish the task of authentication. For vanhackaton uses the "vanhackaton" branch.** 
+### **Observation: For the Vanhackaton look at "vanhackaton" branch.** 
 
 ## 1. Requirements
 
@@ -28,7 +28,7 @@ $ docker-compose -f docker-compose-local.yml up
 
 It is available a collection on Postman that can be used for testing purpose, this Postman can be found on folder *docs/postman*. 
 
-Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://relaxed-bartik-5077aa.bitballoon.com/ or on folder *docs/resources/skip-the-dishes-resources.html*.
+Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://infallible-austin-cf743a.bitballoon.com/ or on folder *docs/api-docs/skip-the-dishes-resources.html*.
 
 Once the application is running all events can be found at http://localhost:2113/
 
