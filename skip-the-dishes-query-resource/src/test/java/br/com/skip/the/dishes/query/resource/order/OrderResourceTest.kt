@@ -2,6 +2,7 @@ package br.com.skip.the.dishes.query.resource.order
 
 import br.com.skip.the.dishes.query.resource.QueryResourceBaseTest
 import org.junit.Test
+import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
 import org.springframework.restdocs.headers.HeaderDocumentation
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation
@@ -27,8 +28,13 @@ class OrderResourceTest : QueryResourceBaseTest() {
 
     @Test
     fun `Find orders without specifying a page`() {
-        this.mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/order")
-                .contentType(MediaType.APPLICATION_JSON_UTF8))
+        this.mockMvc
+                .perform(
+                        RestDocumentationRequestBuilders
+                                .get("/api/v1/order")
+                                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                                .header(HttpHeaders.AUTHORIZATION, TOKEN)
+                )
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andExpect(MockMvcResultMatchers.header().string("X-Total-Count", "6"))
                 .andExpect(MockMvcResultMatchers.header().string("Link", """</api/v1/order?page=0&size=20>; rel="last",</api/v1/order?page=0&size=20>; rel="first""""))
@@ -62,6 +68,7 @@ class OrderResourceTest : QueryResourceBaseTest() {
                                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                                 .param("page", page)
                                 .param("size", size)
+                                .header(HttpHeaders.AUTHORIZATION, TOKEN)
                 )
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andExpect(MockMvcResultMatchers.header().string("X-Total-Count", "6"))
@@ -95,6 +102,7 @@ class OrderResourceTest : QueryResourceBaseTest() {
                         RestDocumentationRequestBuilders
                                 .get("/api/v1/order/{id}", "24ee7c24-2a06-11e8-b467-0ed5f89f718b")
                                 .contentType(MediaType.APPLICATION_JSON_UTF8)
+                                .header(HttpHeaders.AUTHORIZATION, TOKEN)
                 )
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andDo(

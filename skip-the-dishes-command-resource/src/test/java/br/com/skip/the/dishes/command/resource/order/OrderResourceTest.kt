@@ -3,6 +3,7 @@ package br.com.skip.the.dishes.command.resource.order
 import br.com.skip.the.dishes.command.resource.CommandResourceBaseTest
 import org.hamcrest.CoreMatchers
 import org.junit.Test
+import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders
@@ -24,9 +25,14 @@ class OrderResourceTest : CommandResourceBaseTest() {
     fun `Create a new order for a specific customer`() {
         val orderContent = """{"customerId":"user@skip.ca"}"""
 
-        this.mockMvc.perform(RestDocumentationRequestBuilders.post("/api/v1/order")
-                .content(orderContent)
-                .contentType(MediaType.APPLICATION_JSON_UTF8))
+        this.mockMvc
+                .perform(
+                        RestDocumentationRequestBuilders
+                                .post("/api/v1/order")
+                                .content(orderContent)
+                                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                                .header(HttpHeaders.AUTHORIZATION, TOKEN)
+                )
                 .andExpect(MockMvcResultMatchers.status().isCreated)
                 .andExpect(MockMvcResultMatchers.jsonPath("$.orderId", CoreMatchers.notNullValue()))
                 .andDo(
@@ -45,9 +51,14 @@ class OrderResourceTest : CommandResourceBaseTest() {
     fun `Add a product for an order`() {
         val productContent = """{"productId":"e79347b6-2eeb-11e8-b467-0ed5f89f718b"}"""
 
-        this.mockMvc.perform(RestDocumentationRequestBuilders.post("/api/v1/order/{orderId}/product", "d3597b9e-2eeb-11e8-b467-0ed5f89f718b")
-                .content(productContent)
-                .contentType(MediaType.APPLICATION_JSON_UTF8))
+        this.mockMvc
+                .perform(
+                        RestDocumentationRequestBuilders
+                                .post("/api/v1/order/{orderId}/product", "d3597b9e-2eeb-11e8-b467-0ed5f89f718b")
+                                .content(productContent)
+                                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                                .header(HttpHeaders.AUTHORIZATION, TOKEN)
+                )
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andDo(
                         MockMvcRestDocumentation.document("{method-name}",
@@ -65,9 +76,14 @@ class OrderResourceTest : CommandResourceBaseTest() {
     fun `Delete a product from an order`() {
         val productContent = """{"productId":"e79347b6-2eeb-11e8-b467-0ed5f89f718b"}"""
 
-        this.mockMvc.perform(RestDocumentationRequestBuilders.delete("/api/v1/order/{orderId}/product", "d3597b9e-2eeb-11e8-b467-0ed5f89f718b")
-                .content(productContent)
-                .contentType(MediaType.APPLICATION_JSON_UTF8))
+        this.mockMvc
+                .perform(
+                        RestDocumentationRequestBuilders
+                                .delete("/api/v1/order/{orderId}/product", "d3597b9e-2eeb-11e8-b467-0ed5f89f718b")
+                                .content(productContent)
+                                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                                .header(HttpHeaders.AUTHORIZATION, TOKEN)
+                )
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andDo(
                         MockMvcRestDocumentation.document("{method-name}",
@@ -83,8 +99,13 @@ class OrderResourceTest : CommandResourceBaseTest() {
 
     @Test
     fun `Cancel an order`() {
-        this.mockMvc.perform(RestDocumentationRequestBuilders.patch("/api/v1/order/{orderId}/cancel", "d3597b9e-2eeb-11e8-b467-0ed5f89f718b")
-                .contentType(MediaType.APPLICATION_JSON_UTF8))
+        this.mockMvc
+                .perform(
+                        RestDocumentationRequestBuilders
+                                .patch("/api/v1/order/{orderId}/cancel", "d3597b9e-2eeb-11e8-b467-0ed5f89f718b")
+                                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                                .header(HttpHeaders.AUTHORIZATION, TOKEN)
+                )
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andDo(
                         MockMvcRestDocumentation.document("{method-name}",
@@ -97,8 +118,13 @@ class OrderResourceTest : CommandResourceBaseTest() {
 
     @Test
     fun `Request an order that will be done and delivered`() {
-        this.mockMvc.perform(RestDocumentationRequestBuilders.patch("/api/v1/order/{orderId}/request", "d3597b9e-2eeb-11e8-b467-0ed5f89f718b")
-                .contentType(MediaType.APPLICATION_JSON_UTF8))
+        this.mockMvc
+                .perform(
+                        RestDocumentationRequestBuilders
+                                .patch("/api/v1/order/{orderId}/request", "d3597b9e-2eeb-11e8-b467-0ed5f89f718b")
+                                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                                .header(HttpHeaders.AUTHORIZATION, TOKEN)
+                )
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andDo(
                         MockMvcRestDocumentation.document("{method-name}",
@@ -113,9 +139,14 @@ class OrderResourceTest : CommandResourceBaseTest() {
     fun `Update the delivery address for an order`() {
         val deliveryAddressContent = """{"deliveryAddress":"1234 North Fraser Way Suite","contact":"551134999999999"}"""
 
-        this.mockMvc.perform(RestDocumentationRequestBuilders.patch("/api/v1/order/{orderId}/delivery_address", "d3597b9e-2eeb-11e8-b467-0ed5f89f718b")
-                .content(deliveryAddressContent)
-                .contentType(MediaType.APPLICATION_JSON_UTF8))
+        this.mockMvc
+                .perform(
+                        RestDocumentationRequestBuilders
+                                .patch("/api/v1/order/{orderId}/delivery_address", "d3597b9e-2eeb-11e8-b467-0ed5f89f718b")
+                                .content(deliveryAddressContent)
+                                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                                .header(HttpHeaders.AUTHORIZATION, TOKEN)
+                )
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andDo(
                         MockMvcRestDocumentation.document("{method-name}",
