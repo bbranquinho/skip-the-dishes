@@ -64,7 +64,7 @@ The proposed solution uses some concepts like DDD, Event Sourcing, and CQRS. Som
 
 The following figure shows a basic architecture for future developments to improve the project. Some things are omitted for simplicity, like Log (Graylog), Container Orchestration (Docker Swarm or Kubernetes), Data Analysis, Monitoring, and so on.
 
-![Basic Architecture](https://user-images.githubusercontent.com/1013619/37944917-0263b764-3154-11e8-830c-5644490113f1.png)
+![Basic Architecture](https://user-images.githubusercontent.com/1013619/38308255-dd323868-37ec-11e8-9486-0f228237ec98.png)
 
 ## 5. Technologies
 
