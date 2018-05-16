@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/bbranquinho/skip-the-dishes.svg?branch=master)](https://travis-ci.org/bbranquinho/skip-the-dishes) [![codecov](https://codecov.io/gh/bbranquinho/skip-the-dishes/branch/master/graph/badge.svg)](https://codecov.io/gh/bbranquinho/skip-the-dishes)
 
-Challenge: Develop an API that "Allow Authentication", "Query Products", "Receive Orders", "Cancel an Order", "Get Order Status" and "Store data in a database". Besides these tasks is required that the solution support scalability and in few months support millions of users.
+Challenge: To develop an API that "Allows Authentication", "Query Products", "Receive Orders", "Cancel an Order", "Get Order Status" and "Store data in a database". Besides these tasks a solution supports both scalability and millions of users is required.
 
 ## 1. Requirements
 
@@ -24,19 +24,19 @@ $ docker-compose -f docker-compose-local.yml up
 
 ## 3. Test and Documentation
 
-It is available a collection on Postman that can be used for testing purpose, this Postman can be found on folder *docs/postman*. 
+A Postman collection that can be used for testing purpose is available. This Postman can be found in *docs/postman*. 
 
-Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://infallible-austin-cf743a.bitballoon.com/ or on folder *docs/api-docs/skip-the-dishes-resources.html*.
+Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://infallible-austin-cf743a.bitballoon.com/ or in *docs/api-docs/skip-the-dishes-resources.html*.
 
 Once the application is running all events can be found at http://localhost:2113/
 
 ## 4. Architecture
 
-Many things are considered for the proposed solution, the following figures show a domain architecture and a basic conceptual architecture based on domain modules.
+Many things are considered for the proposed solution. The following figures show both domain and basic conceptual architecture based on domain modules.
 
 ### 4.1. Domain Architecture
 
-The proposed solution uses some concepts like DDD, Event Sourcing, and CQRS. Some details of these concepts are available in:
+The proposed solution uses some concepts such as DDD, Event Sourcing, and CQRS. Some details of these concepts are available in:
 
   #### DDD: https://martinfowler.com/tags/domain%20driven%20design.html
   #### CQRS: https://martinfowler.com/bliki/CQRS.html
@@ -60,7 +60,7 @@ The proposed solution uses some concepts like DDD, Event Sourcing, and CQRS. Som
 
 ### 4.2. Basic Architecture
 
-The following figure shows a basic architecture for future developments to improve the project. Some things are omitted for simplicity, like Log (Graylog), Container Orchestration (Docker Swarm or Kubernetes), Data Analysis, Monitoring, and so on.
+The following figure shows a basic architecture for future developments to improve the project. Some things are omitted for simplicity, such as Log (Graylog), Container Orchestration (Docker Swarm or Kubernetes), Data Analysis, Monitoring, and so on.
 
 ![Basic Architecture](https://user-images.githubusercontent.com/1013619/38308255-dd323868-37ec-11e8-9486-0f228237ec98.png)
 
@@ -70,7 +70,7 @@ The following technologies are used for the "domain module" development.
 
     1. Java
     2. Spring Boot
-    3. Spring Data JPA (Spring JDBCTemplate is a better option and can be used for new developments)
+    3. Spring Data JPA (Spring JDBCTemplate is a better option and it can be used for new developments)
     4. Spring REST Docs
     5. Event Store Database (developed by Greg Young)
     6. PostgreSQL
