@@ -309,4 +309,11 @@
             </plugin>
         </plugins>
     </build>
+
+    <scm>
+        <connection>scm:git:https://github.com/bbranquinho/skip-the-dishes/</connection>
+        <url>https://github.com/bbranquinho/skip-the-dishes/</url>
+        <developerConnection>scm:git:https://github.com/bbranquinho/skip-the-dishes/</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 </project>
