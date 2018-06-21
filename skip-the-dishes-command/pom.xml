@@ -28,11 +28,6 @@
             <artifactId>skip-the-dishes-command-resource</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>skip-the-dishes-security</artifactId>
-        </dependency>
-
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -42,6 +37,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-actuator</artifactId>
+        </dependency>
+
+        <!-- Keycloak -->
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-spring-boot-2-adapter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

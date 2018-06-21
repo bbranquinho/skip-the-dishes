@@ -15,11 +15,6 @@
         <!-- Modules -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>skip-the-dishes-security</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>skip-the-dishes-query-resource</artifactId>
         </dependency>
 
@@ -43,6 +38,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- Keycloak -->
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-spring-boot-2-adapter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

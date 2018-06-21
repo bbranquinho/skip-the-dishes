@@ -1,27 +1,43 @@
+# Spring
 spring:
   profiles:
     active: local
   application:
     name: Skip the Dishes - Order (Query)
+  datasource:
+    driverClassName: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        temp.use_jdbc_metadata_defaults: false
+  liquibase:
+    change-log: classpath:config/liquibase/master.xml
 
 # Server
 server:
   version: @project.version@
   port: 8082
 
-# Constraints
-skip:
-  publicConstraints:
-    - pattern: /**
-      methods: OPTIONS
-  constraints:
-    - pattern: /api/v1/product/**
-      roles:
-        - role: PRODUCT
-          methods:
-            - GET
-    - pattern: /api/v1/order/**
-      roles:
-        - role: ORDER
-          methods:
-            - GET
+# Keycloak
+keycloak:
+  realm: skip-the-dishes
+  resource: skip-the-dishes-order
+  public-client: false
+  bearer-only: true
+  use-resource-role-mappings: true
+  security-constraints[0]:
+    authRoles[0]: order
+    securityCollections[0]:
+      patterns[0]: /api/v1/order/*
+  security-constraints[1]:
+    authRoles[0]: product
+    securityCollections[0]:
+      patterns[0]: /api/v1/product/*
+
+# Event Store
+event:
+  sourcing:
+    subscribe: 2

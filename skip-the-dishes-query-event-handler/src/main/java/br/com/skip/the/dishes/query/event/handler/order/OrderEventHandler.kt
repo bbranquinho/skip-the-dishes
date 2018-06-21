@@ -53,7 +53,7 @@ class OrderEventHandler(private val orderRepository: OrderRepository, private va
             orderRepository
                     .findById(aggregateId.value)
                     .get()
-                    .let { it.copy(products = it.products - productEntity) }
+                    .let { it.copy(products = it.products.filter { it.id != productEntity.id }) }
                     .also { orderRepository.save(it) }
         }
 
