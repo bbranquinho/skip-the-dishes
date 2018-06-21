@@ -1,11 +1,10 @@
-package br.com.skip.the.dishes.domain.order.commons;
+package br.com.skip.the.dishes.domain.order.elements;
 
-import br.com.skip.the.dishes.domain.order.events.*;
 import br.com.zup.eventsourcing.core.AggregateId;
 
-public interface OrderApplier {
+public interface Handler {
 
-    void on(AggregateId aggregateId, OrderCreated orderCreated);
+    void on(OrderCreated orderCreated);
 
     void on(AggregateId aggregateId, ProductAdded productAdded);
 

@@ -1,8 +1,8 @@
 package br.com.skip.the.dishes.command.resource
 
 import br.com.skip.the.dishes.domain.order.Order
-import br.com.skip.the.dishes.domain.order.commands.CreateOrderCommand
-import br.com.skip.the.dishes.domain.order.commands.OrderCommandHandler
+import br.com.skip.the.dishes.domain.order.elements.CreateOrderCommand
+import br.com.skip.the.dishes.domain.order.elements.CommandHandler
 import br.com.skip.the.dishes.domain.product.Product
 import br.com.skip.the.dishes.domain.product.commands.CreateProductCommand
 import br.com.skip.the.dishes.domain.product.commands.ProductCommandHandler
@@ -27,7 +27,7 @@ class CommandResourceConfigTest {
 
     private val order = Order("user@skip.ca")
 
-    private val orderCommandHandler = mock<OrderCommandHandler> {
+    private val orderCommandHandler = mock<CommandHandler> {
         on { handle(any<CreateOrderCommand>()) } doReturn order
     }
 
@@ -36,7 +36,7 @@ class CommandResourceConfigTest {
             productCommandHandler
 
     @Bean
-    fun orderCommandHandler(): OrderCommandHandler =
+    fun orderCommandHandler(): CommandHandler =
             orderCommandHandler
 
 }

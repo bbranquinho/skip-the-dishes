@@ -1,21 +1,18 @@
 package br.com.skip.the.dishes.domain.order
 
 import br.com.skip.the.dishes.domain.assertException
-import br.com.skip.the.dishes.domain.order.commons.AttemptChangeOrderStatusException
+import br.com.skip.the.dishes.domain.order.elements.AttemptChangeOrderStatusException
 import br.com.skip.the.dishes.domain.product.Product
 import br.com.zup.eventsourcing.core.AggregateId
 import br.com.zup.eventsourcing.core.Repository
 import br.com.zup.eventsourcing.eventstore.EventStoreRepository
 import com.nhaarman.mockito_kotlin.doAnswer
 import com.nhaarman.mockito_kotlin.doReturn
-import com.nhaarman.mockito_kotlin.doThrow
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
-import com.nhaarman.mockito_kotlin.whenever
 import org.junit.Test
 import org.mockito.internal.verification.Times
 import kotlin.test.assertEquals
-import kotlin.test.assertFailsWith
 import kotlin.test.assertNotNull
 
 class OrderTest {
@@ -32,7 +29,7 @@ class OrderTest {
     fun `Create an order with success`() {
         val order = Order("Customer ID")
 
-        assertNotNull(order.orderId)
+        assertNotNull(order.getOrderId())
 
         assertEquals(expected = "Customer ID", actual = order.customerId)
         assertEquals(expected = OrderStatus.NEW, actual = order.status)

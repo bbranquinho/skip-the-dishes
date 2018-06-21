@@ -1,18 +1,11 @@
 package br.com.skip.the.dishes.domain.order
 
-import br.com.skip.the.dishes.domain.order.commands.AddProductCommand
-import br.com.skip.the.dishes.domain.order.commands.CancelOrderCommand
-import br.com.skip.the.dishes.domain.order.commands.CreateOrderCommand
-import br.com.skip.the.dishes.domain.order.commands.DeleteProductCommand
-import br.com.skip.the.dishes.domain.order.commands.OrderCommandHandler
-import br.com.skip.the.dishes.domain.order.commands.RequestOrderCommand
-import br.com.skip.the.dishes.domain.order.commands.UpdateDeliveryAddressCommand
+import br.com.skip.the.dishes.domain.order.elements.*
 import br.com.skip.the.dishes.domain.product.Product
 import br.com.zup.eventsourcing.core.AggregateId
 import br.com.zup.eventsourcing.core.Repository
 import br.com.zup.eventsourcing.eventstore.EventStoreRepository
 import com.nhaarman.mockito_kotlin.any
-import com.nhaarman.mockito_kotlin.argThat
 import com.nhaarman.mockito_kotlin.doAnswer
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.eq
@@ -21,7 +14,7 @@ import com.nhaarman.mockito_kotlin.verify
 import org.junit.Test
 import org.mockito.internal.verification.Times
 
-class OrderCommandHandlerTest {
+class CommandHandlerTest {
 
     private val order = mock<Order> { }
 
@@ -36,7 +29,7 @@ class OrderCommandHandlerTest {
         on { get(AggregateId("Product ID")) } doReturn product
     }
 
-    private val orderCommandHandler = OrderCommandHandler(orderEventRepository, productEventRepository)
+    private val orderCommandHandler = CommandHandler(orderEventRepository, productEventRepository)
 
     @Test
     fun `Handle the command CreateOrderCommand with successs`() {
@@ -44,7 +37,7 @@ class OrderCommandHandlerTest {
 
         orderCommandHandler.handle(command)
 
-        verify(orderEventRepository, Times(1)).save(argThat { orderId != null })
+        verify(orderEventRepository, Times(1)).save(any())
     }
 
     @Test
