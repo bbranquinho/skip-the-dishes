@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Skip the Dishes",
-		"_postman_id": "9ef395a8-18b4-ebea-586c-b8669eb0033e",
+		"_postman_id": "3219b2ea-3865-954a-471b-266b432a2e82",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -19,7 +19,7 @@
 							"script": {
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 201\"] = (responseCode.code === 201);",
+									"tests[\"Status code is 200\"] = (responseCode.code === 200);",
 									"",
 									"var accessToken = JSON.parse(responseBody).access_token",
 									"postman.setGlobalVariable(\"access_token\", accessToken);",
@@ -74,7 +74,10 @@
 						"url": "http://{{keycloak-host}}/auth/realms/{{realm}}/protocol/openid-connect/certs",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -85,7 +88,10 @@
 						"url": "http://{{keycloak-host}}/auth/realms/{{realm}}/.well-known/openid-configuration",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -232,7 +238,10 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -249,7 +258,10 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -465,7 +477,10 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -482,7 +497,10 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []

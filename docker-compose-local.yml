@@ -6,7 +6,7 @@ services:
       - "5432:5432"
     environment:
       - POSTGRES_USERS=skip_the_dishes_user:skip_the_dishes_pass
-      - POSTGRES_DATABASES=keycloak:skip_the_dishes_user|skip_the_dishes:skip_the_dishes_user
+      - POSTGRES_DATABASES=keycloak:skip_the_dishes_user|skip_the_dishes_order:skip_the_dishes_user
       - MAX_CONNECTIONS=100
 
   event-store:
@@ -14,37 +14,6 @@ services:
     ports:
       - "2113:2113"
       - "1113:1113"
-
-  skip-command:
-    image: skip/command-app
-    volumes:
-      - .:/home/application
-    command: ["/home/application/wait-services.sh"]
-    build: skip-the-dishes-command/
-    environment:
-      - EVENT_STORE_URL=http://event-store:2113
-      - CONFIG_RESOURCE=-Dconfig.resource=file:/home/application/docker-event-store.conf
-    ports:
-      - "8081:8081"
-    depends_on:
-      - postgres
-      - event-store
-
-  skip-query:
-    image: skip/query-app
-    volumes:
-      - .:/home/application
-    command: ["/home/application/wait-services.sh"]
-    build: skip-the-dishes-query/
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/skip_the_dishes
-      - EVENT_STORE_URL=http://event-store:2113
-      - CONFIG_RESOURCE=-Dconfig.resource=file:/home/application/docker-event-store.conf
-    ports:
-      - "8082:8082"
-    depends_on:
-      - postgres
-      - event-store
 
   keycloak:
     image: jboss/keycloak:4.0.0.Final
@@ -64,3 +33,36 @@ services:
        - DB_PASSWORD=skip_the_dishes_pass
     depends_on:
       - postgres
+
+  skip-command:
+    image: skip/command-app
+    volumes:
+      - .:/home/application
+    command: ["/home/application/wait-services.sh"]
+    build: skip-the-dishes-command/
+    environment:
+      - EVENT_STORE_URL=http://event-store:2113
+      - CONFIG_RESOURCE=-Dconfig.resource=file:/home/application/docker-event-store.conf
+      - KEYCLOAK_AUTH_SERVER_URL=http://keycloak:8080/auth
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+      - event-store
+
+  skip-query:
+    image: skip/query-app
+    volumes:
+      - .:/home/application
+    command: ["/home/application/wait-services.sh"]
+    build: skip-the-dishes-query/
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/skip_the_dishes_order
+      - EVENT_STORE_URL=http://event-store:2113
+      - CONFIG_RESOURCE=-Dconfig.resource=file:/home/application/docker-event-store.conf
+      - KEYCLOAK_AUTH_SERVER_URL=http://keycloak:8080/auth
+    ports:
+      - "8082:8082"
+    depends_on:
+      - postgres
+      - event-store
