@@ -72,9 +72,10 @@ class Order : AggregateRoot, Handler {
     }
 
     override fun applyEvent(event: Event) {
-        when (event) {
-            is OrderCreated -> this.on(event)
-            is OrderEvent -> event.apply(id, this)
+        if (event is OrderCreated) {
+            on(event)
+        } else {
+            (event as OrderEvent).apply(id, this)
         }
     }
 

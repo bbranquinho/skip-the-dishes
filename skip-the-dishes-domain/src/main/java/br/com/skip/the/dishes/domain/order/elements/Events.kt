@@ -8,6 +8,7 @@ import br.com.zup.eventsourcing.core.Event
 sealed class OrderEvent : Event() {
     fun apply(aggregateId: AggregateId, handler: Handler) =
         when (this) {
+            is OrderCreated -> handler.on(this)
             is DeliveryAddressUpdated -> handler.on(aggregateId, this)
             is OrderCancelled -> handler.on(aggregateId, this)
             is OrderRequested -> handler.on(aggregateId, this)
@@ -16,7 +17,7 @@ sealed class OrderEvent : Event() {
         }
 }
 
-data class OrderCreated(val orderId: String, val status: OrderStatus, val customerId: String) : Event()
+data class OrderCreated(val orderId: String, val status: OrderStatus, val customerId: String) : OrderEvent()
 
 data class DeliveryAddressUpdated(val deliveryAddress: DeliveryAddress) : OrderEvent()
 
