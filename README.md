@@ -19,7 +19,7 @@ In order to execute the project, it is necessary to run the following commands i
 
 ```sh
 $ mvn clean install
-$ docker-compose -f docker-compose-local.yml up
+$ docker-compose -f docker-compose-local.yml up --build
 ```
 
 ## 3. Test and Documentation
