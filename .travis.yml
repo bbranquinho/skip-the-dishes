@@ -1,7 +1,5 @@
 language: java
 sudo: false
-jdk:
-  - oraclejdk8
 
 cache:
   directories:
@@ -9,10 +7,10 @@ cache:
 
 jobs:
   include:
-#    - stage: test
-#      script: mvn test cobertura:cobertura
-#      after_success: bash <(curl -s https://codecov.io/bash)
-    - stage: push-images
-      script: mvn package -DskipTests && cd skip-the-dishes-command && mvn dockerfile:build dockerfile:push -DskipTests
-#      on:
-#        tags: true
+    - stage: test
+      jdk:
+        - oraclejdk8
+      script:
+        - mvn test cobertura:cobertura
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
