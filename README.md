@@ -13,7 +13,7 @@ Requirements to run the project:
     3. Docker 17.12+
     4. Docker-compose 1.18+
 
-## 2. Build and Run
+## 2. Running
 
 In order to execute the project, it is necessary to run the following commands inside the root folder.
 
@@ -22,7 +22,7 @@ $ mvn clean install
 $ docker-compose -f docker-compose-local.yml up --build
 ```
 
-## 3. Test and Documentation
+## 3. Testing
 
 A Postman collection that can be used for testing purpose is available. This Postman can be found in *docs/postman*. 
 
