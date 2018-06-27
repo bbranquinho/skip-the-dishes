@@ -38,6 +38,7 @@
         <hibernate.validator.version>6.0.8.Final</hibernate.validator.version>
         <feign.version>9.5.0</feign.version>
         <keycloak.version>4.0.0.Final</keycloak.version>
+        <dockerfile.maven.version>1.4.3</dockerfile.maven.version>
     </properties>
 
     <repositories>
@@ -191,6 +192,21 @@
     </dependencyManagement>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>dockerfile-maven-plugin</artifactId>
+                    <version>${dockerfile.maven.version}</version>
+
+                    <configuration>
+                        <username>${docker_io_username}</username>
+                        <password>${docker_io_password}</password>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
             <plugin>
                 <artifactId>kotlin-maven-plugin</artifactId>

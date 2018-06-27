@@ -12,7 +12,7 @@
 
 [[overview-http-verbs]]
 == HTTP verbs
-ROM service tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
+Skip The Dishes service tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
 
 |===
 | Verb | Usage
@@ -35,7 +35,7 @@ ROM service tries to adhere as closely as possible to standard HTTP and REST con
 
 [[overview-http-status-codes]]
 == HTTP status codes
-ROM service tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP status codes.
+Skip The Dishes service tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP status codes.
 
 |===
 | Status code | Usage
