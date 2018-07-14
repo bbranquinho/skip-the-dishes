@@ -26,9 +26,9 @@ $ docker-compose -f docker-compose-local.yml up --build
 
 A Postman collection that can be used for testing purpose is available. This Postman can be found in *docs/postman*. 
 
-Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://nostalgic-hugle-712220.bitballoon.com/ or in *docs/api-docs/skip-the-dishes-resources.html*.
+Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://nostalgic-hugle-712220.bitballoon.com or in *docs/api-docs/skip-the-dishes-resources.html*.
 
-Once the application is running all events can be found at http://localhost:2113/
+Once the application is running all events can be found at http://localhost:2113
 
 For IAM is used the Keycloak and it can be accessed on http://localhost:8080 with the credentials admin/admin.
 
