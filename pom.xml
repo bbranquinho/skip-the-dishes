@@ -24,8 +24,6 @@
         <module>skip-the-dishes-query-repository</module>
         <module>skip-the-dishes-query-event-handler</module>
         <module>skip-the-dishes-query-resource</module>
-        <module>skip-the-dishes-security</module>
-        <module>skip-the-dishes-security-application</module>
     </modules>
 
     <properties>
@@ -39,8 +37,8 @@
         <hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
         <hibernate.validator.version>6.0.8.Final</hibernate.validator.version>
         <feign.version>9.5.0</feign.version>
-        <spring.security.oauth2.autoconfigure.version>2.0.0.RELEASE</spring.security.oauth2.autoconfigure.version>
-        <spring.security.oauth.version>2.3.0.RELEASE</spring.security.oauth.version>
+        <keycloak.version>4.0.0.Final</keycloak.version>
+        <dockerfile.maven.version>1.4.3</dockerfile.maven.version>
     </properties>
 
     <repositories>
@@ -94,12 +92,6 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>skip-the-dishes-domain</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>skip-the-dishes-security</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -184,22 +176,37 @@
                 <version>${feign.version}</version>
             </dependency>
 
-            <!-- Spring Security -->
+            <!-- Keycloak -->
             <dependency>
-                <groupId>org.springframework.security.oauth.boot</groupId>
-                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
-                <version>${spring.security.oauth2.autoconfigure.version}</version>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-spring-boot-2-adapter</artifactId>
+                <version>${keycloak.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.springframework.security.oauth</groupId>
-                <artifactId>spring-security-oauth2</artifactId>
-                <version>${spring.security.oauth.version}</version>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-spring-boot-starter</artifactId>
+                <version>${keycloak.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>dockerfile-maven-plugin</artifactId>
+                    <version>${dockerfile.maven.version}</version>
+
+                    <configuration>
+                        <username>${docker_io_username}</username>
+                        <password>${docker_io_password}</password>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
             <plugin>
                 <artifactId>kotlin-maven-plugin</artifactId>

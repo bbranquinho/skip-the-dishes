@@ -10,15 +10,23 @@ server:
   version: @project.version@
   port: 8081
 
-# Constraints
-skip:
-  publicConstraints:
-    - pattern: /**
-      methods: OPTIONS
-  constraints:
-    - pattern: /api/v1/product/**
-      roles:
-        - role: PRODUCT
-    - pattern: /api/v1/order/**
-      roles:
-        - role: ORDER
+# Keycloak
+keycloak:
+  realm: skip-the-dishes
+  resource: skip-the-dishes-order
+  public-client: false
+  bearer-only: true
+  use-resource-role-mappings: true
+  security-constraints[0]:
+    authRoles[0]: order
+    securityCollections[0]:
+      patterns[0]: /api/v1/order/*
+  security-constraints[1]:
+    authRoles[0]: product
+    securityCollections[0]:
+      patterns[0]: /api/v1/product/*
+
+# Event Store
+event:
+  sourcing:
+    subscribe: 2

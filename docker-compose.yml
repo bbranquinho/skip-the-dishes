@@ -1,27 +1,35 @@
 version: '2'
 services:
   postgres:
-    image: postgres:9.6
+    image: timnn/postgres-multi:latest
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=skip_the_dishes
-      - POSTGRES_USER=skip_the_dishes
-      - POSTGRES_PASSWORD=skip_the_dishes
-      - MAX_CONNECTIONS=300
-
-  postgres-security:
-    image: postgres:9.6
-    ports:
-      - "5433:5432"
-    environment:
-      - POSTGRES_DB=skip_the_dishes_security
-      - POSTGRES_USER=skip_the_dishes_security
-      - POSTGRES_PASSWORD=skip_the_dishes_security
-      - MAX_CONNECTIONS=300
+      - POSTGRES_USERS=skip_the_dishes_user:skip_the_dishes_pass
+      - POSTGRES_DATABASES=keycloak:skip_the_dishes_user|skip_the_dishes_order:skip_the_dishes_user
+      - MAX_CONNECTIONS=100
 
   event-store:
     image: eventstore/eventstore
     ports:
       - "2113:2113"
       - "1113:1113"
+
+  keycloak:
+    image: jboss/keycloak:4.0.0.Final
+    ports:
+       - "8080:8080"
+    command: ["-b", "0.0.0.0", "-Dkeycloak.migration.action=import", "-Dkeycloak.migration.provider=dir", "-Dkeycloak.migration.dir=/opt/jboss/keycloak/config", "-Dkeycloak.migration.strategy=OVERWRITE_EXISTING"]
+    volumes:
+       - ./docs/keycloak:/opt/jboss/keycloak/config
+    environment:
+       - KEYCLOAK_USER=admin
+       - KEYCLOAK_PASSWORD=admin
+       - DB_ADDR=postgres
+       - DB_PORT=5432
+       - DB_VENDOR=POSTGRES
+       - DB_DATABASE=keycloak
+       - DB_USER=skip_the_dishes_user
+       - DB_PASSWORD=skip_the_dishes_pass
+    depends_on:
+      - postgres

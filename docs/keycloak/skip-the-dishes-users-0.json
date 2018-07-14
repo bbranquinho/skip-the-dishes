@@ -1,0 +1,23 @@
+{
+  "realm": "skip-the-dishes",
+  "users": [
+    {
+      "username": "skip",
+      "email": "skip@dishes.ca",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Skip The",
+      "lastName": "Dishes",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "groups": [
+        "user"
+      ]
+    }
+  ]
+}

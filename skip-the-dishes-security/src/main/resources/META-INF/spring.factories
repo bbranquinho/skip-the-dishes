@@ -1,1 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=br.com.skip.the.dishes.security.SkipSecurityAutoConfiguration

@@ -1,22 +1,19 @@
 # Datasource
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/skip_the_dishes
-    username: skip_the_dishes
-    password: skip_the_dishes
-    driverClassName: org.postgresql.Driver
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: none
-    properties:
-      hibernate:
-        temp.use_jdbc_metadata_defaults: false
+    url: jdbc:postgresql://localhost:5432/skip_the_dishes_order
+    username: skip_the_dishes_user
+    password: skip_the_dishes_pass
   liquibase:
-    change-log: classpath:config/liquibase/master.xml
     url: ${spring.datasource.url}
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
+
+# Keycloak
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  credentials:
+    secret: 3bfdaad0-38d6-45f4-a01b-fb455cf28ff4
 
 # Event Store
 event:
@@ -24,22 +21,3 @@ event:
     user: admin
     password: changeit
     url: http://localhost:2113
-  sourcing:
-    subscribe: 2
-
-# Security
-security:
-  oauth2:
-    resource:
-      jwt:
-        key-value: |
-           -----BEGIN PUBLIC KEY-----
-           MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv0b9r3G/sYmhSHH3/Vsr
-           sP2RoxFUwygbwSrNHaamlHUhYtvGv7Vx+IC6gV2f+bSYvEiiqUfnHageUZrgSP3O
-           +DCgWD7rIjfU0GoBM3NOZfRKG7/A0hQ/Kdzac/ZgNWFj/OdM6lWYEAsf02eYZ92Y
-           zJjrlaLkDrnuTOJnla2JnAmhpVVoLA5ynuqKspgCA9XoiE3Fsf4WDnhTr69f8RjJ
-           LaOem+hdVZdwja/MtUNBcQmNl7NOaPWTlikPmboys8OzW7FTcEJvqEkKu7B0KmET
-           Qve4q7h2kPIxdvFbeUoyrfaw2HL/9PKO5vtgEInDH3cuiQ2IPXIDhBNKLTWdZPq4
-           DQIDAQAB
-           -----END PUBLIC KEY-----
-
