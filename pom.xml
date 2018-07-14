@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -13,7 +11,7 @@
     <groupId>br.com.skip.the.dishes</groupId>
     <artifactId>skip-the-dishes</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <modules>
         <module>skip-the-dishes-command</module>
@@ -129,13 +127,13 @@
             <dependency>
                 <groupId>br.com.zup</groupId>
                 <artifactId>event-sourcing-core</artifactId>
-                <version>${event.sourcing.version}</version>
+                <version>0.0.16-SNAPSHOT</version>
             </dependency>
 
             <dependency>
                 <groupId>br.com.zup</groupId>
                 <artifactId>event-store-connector</artifactId>
-                <version>${event.sourcing.version}</version>
+                <version>0.0.16-SNAPSHOT</version>
             </dependency>
 
             <!-- Hibernate JPA -->
@@ -311,7 +309,7 @@
                         <format>html</format>
                         <format>xml</format>
                     </formats>
-                    <check/>
+                    <check />
                 </configuration>
             </plugin>
 
@@ -327,6 +325,6 @@
         <connection>scm:git:https://github.com/bbranquinho/skip-the-dishes/</connection>
         <url>https://github.com/bbranquinho/skip-the-dishes/</url>
         <developerConnection>scm:git:https://github.com/bbranquinho/skip-the-dishes/</developerConnection>
-        <tag>HEAD</tag>
+        <tag>0.0.1</tag>
     </scm>
 </project>
