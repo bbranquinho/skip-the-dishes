@@ -30,6 +30,8 @@ Based on unitary tests an API documentation was built using Spring REST Docs and
 
 Once the application is running all events can be found at http://localhost:2113/
 
+For IAM is used the Keycloak and it can be accessed on http://localhost:8080 with the credentials admin/admin.
+
 ## 4. Architecture
 
 Many things are considered for the proposed solution. The following figures show both domain and basic conceptual architecture based on domain modules.
@@ -81,4 +83,5 @@ The following technologies are used for the "domain module" development.
     11. Feign
     12. Docker
     13. Docker Compose
+    14. Keycloak
 
