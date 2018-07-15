@@ -41,8 +41,9 @@ Many things are considered for the proposed solution. The following figures show
 The proposed solution uses some concepts such as DDD, Event Sourcing, and CQRS. Some details of these concepts are available in:
 
   #### DDD: https://martinfowler.com/tags/domain%20driven%20design.html
-  #### CQRS: https://martinfowler.com/bliki/CQRS.html
-  #### Event Sourcing: https://martinfowler.com/eaaDev/EventSourcing.html and https://www.youtube.com/watch?v=cISNDnwlSgw
+  #### CQRS: https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf
+  #### Event Driven: https://martinfowler.com/articles/201701-event-driven.html
+  #### Event Sourcing: https://www.youtube.com/watch?v=cISNDnwlSgw
     Benefits
         History based queries
         Audit log by design
