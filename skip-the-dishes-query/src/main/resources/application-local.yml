@@ -11,7 +11,7 @@ spring:
 
 # Keycloak
 keycloak:
-  auth-server-url: http://localhost:8080/auth
+  auth-server-url: http://keycloak:8080/auth
   credentials:
     secret: 3bfdaad0-38d6-45f4-a01b-fb455cf28ff4
 
