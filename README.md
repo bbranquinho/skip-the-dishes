@@ -15,7 +15,7 @@ Requirements to run the project:
 
 ## 2. Running
 
-In order to execute the project, it is necessary to run the following commands inside the root folder.
+In order to execute the project, it is necessary to run the following commands inside the root folder and add in your **/etc/hosts** the value `127.0.0.1 keycloak` (required for authentication).
 
 ```sh
 $ mvn clean install
