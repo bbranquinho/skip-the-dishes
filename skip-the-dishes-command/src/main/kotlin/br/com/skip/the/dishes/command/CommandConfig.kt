@@ -10,9 +10,11 @@ import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServic
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Import
 
 @SpringBootApplication(exclude = [UserDetailsServiceAutoConfiguration::class])
 @ComponentScan(basePackages = ["br.com.skip.the.dishes.command"])
+@Import(SwaggerConfig::class)
 @Configuration
 class CommandConfig {
 

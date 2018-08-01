@@ -37,6 +37,7 @@
         <feign.version>9.5.0</feign.version>
         <keycloak.version>4.0.0.Final</keycloak.version>
         <dockerfile.maven.version>1.4.3</dockerfile.maven.version>
+        <springfox.swagger.version>2.8.0</springfox.swagger.version>
     </properties>
 
     <repositories>
@@ -185,6 +186,19 @@
                 <groupId>org.keycloak</groupId>
                 <artifactId>keycloak-spring-boot-starter</artifactId>
                 <version>${keycloak.version}</version>
+            </dependency>
+
+            <!-- Swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.swagger.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

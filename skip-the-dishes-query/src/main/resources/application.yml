@@ -41,3 +41,9 @@ keycloak:
 event:
   sourcing:
     subscribe: 2
+
+# Swagger
+swagger:
+  auth:
+    token-url: ${keycloak.auth-server-url}/realms/${keycloak.realm}/protocol/openid-connect/token/
+    client-id: skip-the-dishes-dev
