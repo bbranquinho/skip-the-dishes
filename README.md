@@ -91,3 +91,4 @@ The following technologies are used for the "domain module" development.
     12. Docker
     13. Docker Compose
     14. Keycloak
+    15. Swagger
