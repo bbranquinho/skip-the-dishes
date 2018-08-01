@@ -19,12 +19,11 @@ class OrderEventHandler(private val orderRepository: OrderRepository, private va
     }
 
     override fun on(orderCreated: OrderCreated) {
-        val orderEntity = OrderEntity(
+        OrderEntity(
                 id = orderCreated.orderId,
                 customerId = orderCreated.customerId,
                 status = orderCreated.status.toString()
-        )
-        orderRepository.save(orderEntity)
+        ).apply { orderRepository.save(this) }
     }
 
     override fun on(aggregateId: AggregateId, productAdded: ProductAdded) {
