@@ -135,9 +135,10 @@ Desktop.ini
 !gradle/wrapper/gradle-wrapper.jar
 
 ######################
-# Maven Wrapper
+# Maven
 ######################
 !.mvn/wrapper/maven-wrapper.jar
+.m2/
 
 ######################
 # ESLint
