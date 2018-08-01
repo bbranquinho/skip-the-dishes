@@ -336,9 +336,9 @@
     </build>
 
     <scm>
-        <connection>scm:git:https://github.com/bbranquinho/skip-the-dishes/</connection>
+        <connection>scm:git:git@github.com:bbranquinho/skip-the-dishes.git</connection>
         <url>https://github.com/bbranquinho/skip-the-dishes/</url>
-        <developerConnection>scm:git:https://github.com/bbranquinho/skip-the-dishes/</developerConnection>
+        <developerConnection>scm:git:git@github.com:bbranquinho/skip-the-dishes.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 </project>
