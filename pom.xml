@@ -335,6 +335,14 @@
         </plugins>
     </build>
 
+    <!-- Testing purpose. -->
+    <distributionManagement>
+        <repository>
+            <id>local</id>
+            <url>file:///./.m2/repository</url>
+        </repository>
+    </distributionManagement>
+
     <scm>
         <connection>scm:git:git@github.com:bbranquinho/skip-the-dishes.git</connection>
         <url>https://github.com/bbranquinho/skip-the-dishes/</url>
