@@ -8,24 +8,26 @@ Challenge: To develop an API that "Allows Authentication", "Query Products", "Re
 
 Requirements to run the project:
 
-    1. JDK 1.8
-    2. Maven 3.4+
-    3. Docker 17.12+
-    4. Docker-compose 1.18+
+    1. Docker 17.12+
+    2. Docker-compose 1.18+
+    3. JDK 1.8 (optional)
+    4. Maven 3.4+ (optional)
+
+It is necessary add in your **Hosts** (*/etc/hosts* for Linux and OS X; *c:\Windows\System32\drivers\etc\hosts* for Windows) the value `127.0.0.1 keycloak` (required for authentication).
 
 ## 2. Running
 
-In order to execute the project, it is necessary to run the following commands inside the root folder and add in your **/etc/hosts** the value `127.0.0.1 keycloak` (required for authentication).
+In order to execute the project based on docker, that not requires the JDK and Maven, it is necessary to run the following commands inside the root folder:
+
+```sh
+$ ./start-local.sh
+```
+
+There is another option to execute the project that requires the JDK and Maven, for this case can be used the following command:
 
 ```sh
 $ mvn clean install
 $ docker-compose -f docker-compose-local.yml up --build
-```
-
-There is another option to execute the project based on docker that not requires the JDK and Maven, for this case can be used the following command:
-
-```sh
-$ ./start-local.sh
 ```
 
 ## 3. Testing
