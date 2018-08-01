@@ -486,7 +486,10 @@
       "clientAuthenticatorType": "client-secret",
       "secret": "3750685f-d9d9-4afc-ac24-1267846ee82e",
       "redirectUris": [],
-      "webOrigins": [],
+      "webOrigins": [
+        "http://localhost:8081",
+        "http://localhost:8082"
+      ],
       "notBefore": 0,
       "bearerOnly": false,
       "consentRequired": false,

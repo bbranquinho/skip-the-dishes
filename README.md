@@ -26,7 +26,7 @@ $ docker-compose -f docker-compose-local.yml up --build
 
 A Postman collection that can be used for testing purpose is available. This Postman can be found in *docs/postman*. 
 
-Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://nostalgic-hugle-712220.bitballoon.com or in *docs/api-docs/skip-the-dishes-resources.html*.
+Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://nostalgic-hugle-712220.bitballoon.com or in *docs/api-docs/skip-the-dishes-resources.html*. It is available for each application a Swagger interface at http://localhost:8081/swagger-ui.html and http://localhost:8082/swagger-ui.html, to authenticate uses the credential skip/password.
 
 Once the application is running all events can be found at http://localhost:2113
 
