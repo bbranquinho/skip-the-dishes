@@ -22,6 +22,12 @@ $ mvn clean install
 $ docker-compose -f docker-compose-local.yml up --build
 ```
 
+There is another option to execute the project based on docker that not requires the JDK and Maven, for this case can be used the following command:
+
+```sh
+$ ./start-local.sh
+```
+
 ## 3. Testing
 
 A Postman collection that can be used for testing purpose is available. This Postman can be found in *docs/postman*. 
@@ -85,4 +91,3 @@ The following technologies are used for the "domain module" development.
     12. Docker
     13. Docker Compose
     14. Keycloak
-
