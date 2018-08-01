@@ -6,14 +6,14 @@ Challenge: To develop an API that "Allows Authentication", "Query Products", "Re
 
 ## 1. Requirements
 
-Requirements to run the project:
+Requirements that should be installed to run the project:
 
-    1. Docker 17.12+
-    2. Docker-compose 1.18+
+    1. Docker 17.12
+    2. Docker-compose 1.18
     3. JDK 1.8 (optional)
-    4. Maven 3.4+ (optional)
+    4. Maven 3.4 (optional)
 
-It is necessary add in your **Hosts** (*/etc/hosts* for Linux and OS X; *c:\Windows\System32\drivers\etc\hosts* for Windows) the value `127.0.0.1 keycloak` (required for authentication).
+Add in your *Hosts* (**/etc/hosts** for Linux/OS X, and **c:\Windows\System32\drivers\etc\hosts** for Windows) the value `127.0.0.1 keycloak`, it is required for authentication.
 
 ## 2. Running
 
