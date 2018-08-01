@@ -11,7 +11,7 @@
     <groupId>br.com.skip.the.dishes</groupId>
     <artifactId>skip-the-dishes</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <modules>
         <module>skip-the-dishes-command</module>
@@ -347,6 +347,6 @@
         <connection>scm:git:git@github.com:bbranquinho/skip-the-dishes.git</connection>
         <url>https://github.com/bbranquinho/skip-the-dishes/</url>
         <developerConnection>scm:git:git@github.com:bbranquinho/skip-the-dishes.git</developerConnection>
-        <tag>1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 </project>
