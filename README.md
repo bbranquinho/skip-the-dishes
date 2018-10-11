@@ -88,7 +88,7 @@ The following technologies are used for the "domain module" development.
     7. Liquibase
     8. Kotlin (tests and POJOs)
     9. Mockito
-    10. Mockito Kolin
+    10. Mockito Kotlin
     11. Feign
     12. Docker
     13. Docker Compose
