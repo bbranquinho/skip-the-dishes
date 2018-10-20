@@ -40,6 +40,18 @@ Once the application is running all events can be found at http://localhost:2113
 
 For IAM is used the Keycloak and it can be accessed on http://localhost:8080 with the credential admin/admin.
 
+### 3.1. Endpoints (Overview)
+
+|      Application      |                    Hostname                  |   Credential (user)  | Credential (password) |
+| --------------------- | -------------------------------------------- | -------------------- | --------------------- |
+| API Documentation     | http://nostalgic-hugle-712220.bitballoon.com |         -            |           -           |
+| Event Store Database  | http://localhost:2113                        |       admin          |       changeit        |
+| Keycloak              | http://localhost:8080                        |       admin          |         admin         |
+| Command (Swagger)     | http://localhost:8081/swagger-ui.html        |       skip           |       password        |
+| Query (Swagger)       | http://localhost:8082/swagger-ui.html        |       skip           |       password        |
+| PostgreSQL (Keycloak) | localhost:5432                               | skip_the_dishes_user | skip_the_dishes_pass  |
+| PostgreSQL (Query)    | localhost:5432                               | skip_the_dishes_user | skip_the_dishes_pass  |
+
 ## 4. Architecture
 
 Many things are considered for the proposed solution. The following figures show both domain and basic conceptual architecture based on domain modules.
