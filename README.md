@@ -17,13 +17,19 @@ Add in your *Hosts* (**/etc/hosts** for Linux/OS X, and **c:\Windows\System32\dr
 
 ## 2. Running
 
+There two ways to execute the project.
+
+### 2.1. First (Linux, OS X)
+
 In order to execute the project based on docker, that not requires the JDK and Maven, it is necessary to run the following commands inside the root folder:
 
 ```sh
 $ ./start-local.sh
 ```
 
-There is another option that usually compiles faster the project, however, for this case is required the JDK and Maven. The following commands are used for such execution option:
+### 2.2. Second (Linux, OS X, Windows)
+
+This option usually compiles faster the project, however, for this case is required the JDK and Maven. The following commands are used for such execution option:
 
 ```sh
 $ mvn clean install
