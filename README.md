@@ -40,7 +40,7 @@ Once the application is running all events can be found at http://localhost:2113
 
 For IAM is used the Keycloak and it can be accessed on http://localhost:8080 with the credential admin/admin.
 
-### 3.1. Endpoints (Overview)
+### 3.1. Overview
 
 |      Application      |                    Hostname                  |   Credential (user)  | Credential (password) |
 | --------------------- | -------------------------------------------- | -------------------- | --------------------- |
