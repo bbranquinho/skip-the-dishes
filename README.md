@@ -23,7 +23,7 @@ In order to execute the project based on docker, that not requires the JDK and M
 $ ./start-local.sh
 ```
 
-There is other option to execute the project that requires the JDK and Maven, for this case can be used the following command:
+There is another option that usually compiles faster the project, however, for this case is required the JDK and Maven. The following commands are used for such execution option:
 
 ```sh
 $ mvn clean install
