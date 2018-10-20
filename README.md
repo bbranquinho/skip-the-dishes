@@ -92,13 +92,13 @@ The following figure shows a basic architecture for future developments to impro
 The following technologies are used for the "domain module" development.
 
     1. Java
-    2. Spring Boot
-    3. Spring Data JPA (Spring JDBCTemplate is a better option and it can be used for new developments)
-    4. Spring REST Docs
-    5. Event Store Database (developed by Greg Young)
-    6. PostgreSQL
-    7. Liquibase
-    8. Kotlin (tests and POJOs)
+    2. Kotlin
+    3. Spring Boot
+    4. Spring Data JPA
+    5. Spring REST Docs
+    6. Event Store Database (developed by Greg Young)
+    7. PostgreSQL
+    8. Liquibase
     9. Mockito
     10. Mockito Kotlin
     11. Feign
