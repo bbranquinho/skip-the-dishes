@@ -95,7 +95,7 @@ The following figure shows a basic architecture for future developments to impro
 
 ## 5. Technologies
 
-The following technologies are used for the "domain module" development.
+The following technologies are used for each "domain module".
 
     1. Java
     2. Kotlin
