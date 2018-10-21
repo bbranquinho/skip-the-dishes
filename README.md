@@ -17,7 +17,7 @@ Add in your *Hosts* (**/etc/hosts** for Linux/OS X, and **c:\Windows\System32\dr
 
 ## 2. Running
 
-There two ways to execute the project.
+There are two ways to execute the project.
 
 ### 2.1. First (Linux, OS X)
 
