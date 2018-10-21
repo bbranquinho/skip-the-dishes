@@ -29,7 +29,7 @@ $ ./start-local.sh
 
 ### 2.2. Second (Linux, OS X, Windows)
 
-This option usually compiles faster the project, however, for this case is required the JDK and Maven. The following commands are used:
+This option usually compiles faster, however, for this case is required the JDK and Maven. The following commands are used:
 
 ```sh
 $ mvn clean install
