@@ -1,25 +1,20 @@
 package br.com.skip.the.dishes.command.resource.product
 
-import org.springframework.web.bind.annotation.*
-
-import javax.validation.Valid
-import javax.validation.constraints.NotNull
-import javax.validation.constraints.Size
-
 import br.com.skip.the.dishes.command.resource.commons.Paths.PRODUCT_PATH
-import br.com.skip.the.dishes.domain.utils.DomainConstants
 import br.com.skip.the.dishes.domain.utils.DomainConstants.PRODUCT_ID_SIZE
 import org.springframework.http.HttpStatus.CREATED
 import org.springframework.http.HttpStatus.OK
-import javax.validation.constraints.Min
-import javax.validation.constraints.NotEmpty
+import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
+import javax.validation.constraints.NotNull
+import javax.validation.constraints.Size
 
 @RequestMapping(path = [PRODUCT_PATH])
 interface ProductApi {
 
     @ResponseStatus(CREATED)
     @PostMapping
-    fun create(@RequestBody @Valid createRequest: CreateRequest): CreateResponse
+    fun create(@RequestBody @Valid createProductRequest: CreateProductRequest): CreateProductResponse
 
     @ResponseStatus(OK)
     @PatchMapping(path = ["/{id}/detail"])
@@ -32,32 +27,3 @@ interface ProductApi {
                     @RequestBody @Valid priceRequest: PriceRequest)
 
 }
-
-data class CreateRequest(
-        @field:[NotEmpty Size(max = DomainConstants.PRODUCT_NAME_SIZE)]
-        val name: String,
-
-        @field:[NotEmpty Size(max = DomainConstants.PRODUCT_DESCRIPTION_SIZE)]
-        val description: String,
-
-        @field:[NotEmpty Size(max = DomainConstants.PRODUCT_STORE_ID_SIZE)]
-        val storeId: String,
-
-        @field:[Min(DomainConstants.PRODUCT_PRICE_MIN.toLong())]
-        val price: Double
-)
-
-data class CreateResponse(val productId: String)
-
-data class DetailRequest(
-        @field:[NotEmpty Size(max = DomainConstants.PRODUCT_NAME_SIZE)]
-        val name: String,
-
-        @field:[NotEmpty Size(max = DomainConstants.PRODUCT_DESCRIPTION_SIZE)]
-        val description: String
-)
-
-data class PriceRequest(
-        @field:[Min(DomainConstants.PRODUCT_PRICE_MIN.toLong())]
-        val price: Double
-)

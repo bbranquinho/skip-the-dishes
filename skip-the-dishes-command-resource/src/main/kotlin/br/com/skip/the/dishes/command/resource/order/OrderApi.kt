@@ -1,24 +1,19 @@
 package br.com.skip.the.dishes.command.resource.order
 
-import org.springframework.web.bind.annotation.*
-
-import javax.validation.Valid
-import javax.validation.constraints.Size
-
 import br.com.skip.the.dishes.command.resource.commons.Paths.ORDER_PATH
-import br.com.skip.the.dishes.domain.utils.DomainConstants
 import br.com.skip.the.dishes.domain.utils.DomainConstants.ORDER_ID_SIZE
 import org.springframework.http.HttpStatus.CREATED
 import org.springframework.http.HttpStatus.OK
-import javax.validation.constraints.NotEmpty
-import javax.validation.constraints.NotNull
+import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
+import javax.validation.constraints.Size
 
 @RequestMapping(path = [ORDER_PATH])
 interface OrderApi {
 
     @ResponseStatus(CREATED)
     @PostMapping
-    fun create(@RequestBody @Valid createRequest: CreateRequest): CreateResponse
+    fun create(@RequestBody @Valid createOrderRequest: CreateOrderRequest): CreateOrderResponse
 
     @ResponseStatus(OK)
     @PostMapping(path = ["/{id}/product"])
@@ -44,17 +39,3 @@ interface OrderApi {
                               @RequestBody @Valid deliveryAddressRequest: DeliveryAddressRequest)
 
 }
-
-data class CreateRequest(@field:[NotEmpty Size(max = DomainConstants.CUSTOMER_ID_SIZE)] val customerId: String)
-
-data class CreateResponse(val orderId: String)
-
-data class DeliveryAddressRequest(
-        @field:[NotEmpty Size(max = DomainConstants.ORDER_DELIVERY_ADDRESS_SIZE)]
-        val deliveryAddress: String,
-
-        @field:[NotEmpty Size(max = DomainConstants.ORDER_CONTACT_SIZE)]
-        val contact: String
-)
-
-data class ProductRequest(@field:[NotEmpty Size(max = DomainConstants.PRODUCT_ID_SIZE)] val productId: String)
