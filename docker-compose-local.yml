@@ -10,13 +10,13 @@ services:
       - MAX_CONNECTIONS=100
 
   event-store:
-    image: eventstore/eventstore
+    image: eventstore/eventstore:release-4.1.1-hotfix1
     ports:
       - "2113:2113"
       - "1113:1113"
 
   keycloak:
-    image: jboss/keycloak:4.0.0.Final
+    image: jboss/keycloak:4.8.3.Final
     ports:
        - "8080:8080"
     command: ["-b", "0.0.0.0", "-Dkeycloak.migration.action=import", "-Dkeycloak.migration.provider=dir", "-Dkeycloak.migration.dir=/opt/jboss/keycloak/config", "-Dkeycloak.migration.strategy=OVERWRITE_EXISTING"]

@@ -29,10 +29,10 @@ $ ./start-local.sh
 
 ### 2.2. Second (Linux, OS X, Windows)
 
-This option usually compiles faster, however, for this case is required the JDK and Maven. The following commands are used:
+This option is better, however, JDK and Maven are required. The following commands are used:
 
 ```sh
-$ mvn clean install
+$ mvn package
 $ docker-compose -f docker-compose-local.yml up --build
 ```
 
@@ -40,23 +40,23 @@ $ docker-compose -f docker-compose-local.yml up --build
 
 A Postman collection that can be used for testing purpose is available. This Postman can be found in *docs/postman*. 
 
-Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://nostalgic-hugle-712220.bitballoon.com or in *docs/api-docs/skip-the-dishes-resources.html*. It is available for each application a Swagger interface at http://localhost:8081/swagger-ui.html and http://localhost:8082/swagger-ui.html, to authenticate uses the **username** and **password**, **skip** and **password**, respectively.
+Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://nostalgic-hugle-712220.bitballoon.com or in *docs/api-docs/skip-the-dishes-resources.html*. It is available for each application a Swagger interface at http://keycloak:8081/swagger-ui.html and http://keycloak:8082/swagger-ui.html, to authenticate uses the **username** and **password**, **skip** and **password**, respectively.
 
-Once the application is running all events can be found at http://localhost:2113, **username** and **password** is **admin** and **changeit** respectively.
+Once the application is running all events can be found at http://keycloak:2113, **username** and **password** is **admin** and **changeit** respectively.
 
-For IAM is used the Keycloak and it can be accessed on http://localhost:8080 with the credential admin/admin.
+For IAM is used the Keycloak and it can be accessed on http://keycloak:8080 with the credential admin/admin.
 
 ### 3.1. Overview
 
 |      Application      |                    Hostname                  |   Credential (user)  | Credential (password) |
 | --------------------- | -------------------------------------------- | -------------------- | --------------------- |
 | API Documentation     | http://nostalgic-hugle-712220.bitballoon.com |         -            |           -           |
-| Event Store Database  | http://localhost:2113                        |       admin          |       changeit        |
-| Keycloak              | http://localhost:8080                        |       admin          |         admin         |
-| Command (Swagger)     | http://localhost:8081/swagger-ui.html        |       skip           |       password        |
-| Query (Swagger)       | http://localhost:8082/swagger-ui.html        |       skip           |       password        |
-| PostgreSQL (Keycloak) | localhost:5432                               | skip_the_dishes_user | skip_the_dishes_pass  |
-| PostgreSQL (Query)    | localhost:5432                               | skip_the_dishes_user | skip_the_dishes_pass  |
+| Event Store Database  | http://keycloak:2113                         |       admin          |       changeit        |
+| Keycloak              | http://keycloak:8080                         |       admin          |         admin         |
+| Command (Swagger)     | http://keycloak:8081/swagger-ui.html         |       skip           |       password        |
+| Query (Swagger)       | http://keycloak:8082/swagger-ui.html         |       skip           |       password        |
+| PostgreSQL (Keycloak) | keycloak:5432                                | skip_the_dishes_user | skip_the_dishes_pass  |
+| PostgreSQL (Query)    | keycloak:5432                                | skip_the_dishes_user | skip_the_dishes_pass  |
 
 ## 4. Architecture
 
