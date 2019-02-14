@@ -488,7 +488,9 @@
       "redirectUris": [],
       "webOrigins": [
         "http://localhost:8081",
-        "http://localhost:8082"
+        "http://localhost:8082",
+        "http://keycloak:8081",
+        "http://keycloak:8082"
       ],
       "notBefore": 0,
       "bearerOnly": false,
