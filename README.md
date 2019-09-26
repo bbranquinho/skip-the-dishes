@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/bbranquinho/skip-the-dishes.svg?branch=master)](https://travis-ci.org/bbranquinho/skip-the-dishes) [![codecov](https://codecov.io/gh/bbranquinho/skip-the-dishes/branch/master/graph/badge.svg)](https://codecov.io/gh/bbranquinho/skip-the-dishes)
 
-Challenge: develop an API that "Allows Authentication", "Query Products", "Receive Orders", "Cancel an Order", "Get Order Status" and "Store data in a database". Besides these tasks, a solution that supports both scalability and millions of users is required.
+Sample project based on Event Sourcing and CQRS. Should be available an API that "Allows Authentication", "Query Products", "Receive Orders", "Cancel an Order" and "Get Order Status".
 
 ## 1. Requirements
 
@@ -13,7 +13,7 @@ Requirements to run this project:
     3. JDK 1.8 (optional)
     4. Maven 3.4 (optional)
 
-Add in your *Hosts* (**/etc/hosts** for Linux/OS X, and **c:\Windows\System32\drivers\etc\hosts** for Windows) the value `127.0.0.1 keycloak`, it is required for authentication.
+Add in your *Hosts* (**/etc/hosts** for Linux/OS X, and **c:\Windows\System32\drivers\etc\hosts** for Windows) the value `127.0.0.1 keycloak` (required for authentication).
 
 ## 2. Running
 
@@ -38,13 +38,15 @@ $ docker-compose -f docker-compose-local.yml up --build
 
 ## 3. Testing
 
-A Postman collection that can be used for testing purpose is available. This Postman can be found in *docs/postman*. 
+There is a Postman collection that can be used for testing and it's available in *docs/postman*. 
 
-Based on unitary tests an API documentation was built using Spring REST Docs and it is available at http://nostalgic-hugle-712220.bitballoon.com or in *docs/api-docs/skip-the-dishes-resources.html*. It is available for each application a Swagger interface at http://keycloak:8081/swagger-ui.html and http://keycloak:8082/swagger-ui.html, to authenticate uses the **username** and **password**, **skip** and **password**, respectively.
+Based on unitary tests an API documentation was built using Spring REST Docs and it's available at http://nostalgic-hugle-712220.bitballoon.com or *docs/api-docs/skip-the-dishes-resources.html*.
 
-Once the application is running all events can be found at http://keycloak:2113, **username** and **password** is **admin** and **changeit** respectively.
+For each each application there is a Swagger interface http://keycloak:8081/swagger-ui.html and http://keycloak:8082/swagger-ui.html (**username** = **skip**)(**password** = **password**).
 
-For IAM is used the Keycloak and it can be accessed on http://keycloak:8080 with the credential admin/admin.
+All events can be found at http://keycloak:2113 (**username** = **admin**)(**password** = **changeit**).
+
+The Keycloak was used for the IAM http://keycloak:8080 (**username** = **admin**)(**password** = **admin**).
 
 ### 3.1. Overview
 
@@ -89,7 +91,7 @@ The proposed solution uses some concepts such as DDD, Event Sourcing, and CQRS. 
 
 ### 4.2. Basic Architecture
 
-The following figure shows a basic architecture for future developments to improve the project. Some things are omitted for simplicity, such as Log (Graylog), Container Orchestration (Docker Swarm or Kubernetes), Data Analysis, Monitoring, and so on.
+The following figure show a basic architecture for future developments to improve the project. Some things are omitted for simplicity, such as Log (Graylog), Container Orchestration (Docker Swarm or Kubernetes), Data Analysis, Monitoring, and so on.
 
 ![Basic Architecture](https://user-images.githubusercontent.com/1013619/38308255-dd323868-37ec-11e8-9486-0f228237ec98.png)
 
@@ -97,18 +99,17 @@ The following figure shows a basic architecture for future developments to impro
 
 The following technologies are used for each "domain module".
 
-    1. Java
-    2. Kotlin
+    1. Kotlin
+    2. Event Store Database (developed by Greg Young)
     3. Spring Boot
-    4. Spring Data JPA
-    5. Spring REST Docs
-    6. Event Store Database (developed by Greg Young)
-    7. PostgreSQL
-    8. Liquibase
-    9. Mockito
-    10. Mockito Kotlin
-    11. Feign
-    12. Docker
-    13. Docker Compose
-    14. Keycloak
-    15. Swagger
+    4. Docker
+    5. Docker Compose
+    6. Keycloak
+    7. Spring Data JPA :worried:
+    8. Spring REST Docs
+    9. PostgreSQL
+    10. Liquibase
+    11. Mockito
+    12. Mockito Kotlin
+    13. Feign
+    14. Swagger
