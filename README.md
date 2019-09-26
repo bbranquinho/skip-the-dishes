@@ -100,7 +100,7 @@ The following figure show a basic architecture for future developments to improv
 The following technologies are used for each "domain module".
 
     1. Kotlin
-    2. Event Store Database (developed by Greg Young)
+    2. (Event Store Database (developed by Greg Young))[https://eventstore.org/]
     3. Spring Boot
     4. Docker
     5. Docker Compose
