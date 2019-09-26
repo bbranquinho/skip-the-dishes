@@ -6,7 +6,7 @@ Challenge: develop an API that "Allows Authentication", "Query Products", "Recei
 
 ## 1. Requirements
 
-Requirements that should be installed to run the project:
+Requirements to run this project:
 
     1. Docker 17.12
     2. Docker-compose 1.18
