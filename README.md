@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/bbranquinho/skip-the-dishes.svg?branch=master)](https://travis-ci.org/bbranquinho/skip-the-dishes) [![codecov](https://codecov.io/gh/bbranquinho/skip-the-dishes/branch/master/graph/badge.svg)](https://codecov.io/gh/bbranquinho/skip-the-dishes)
 
-Sample project based on Event Sourcing and CQRS. Should be available an API that "Allows Authentication", "Query Products", "Receive Orders", "Cancel an Order" and "Get Order Status".
+Sample project based on Event Sourcing and CQRS. It's available an API that "Allows Authentication", "Query Products", "Receive Orders", "Cancel an Order" and "Get Order Status".
 
 ## 1. Requirements
 
