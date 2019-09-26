@@ -146,3 +146,8 @@ Desktop.ini
 .eslintcache
 
 paho*tcp*/
+
+######################
+# Docker
+######################
+.env
