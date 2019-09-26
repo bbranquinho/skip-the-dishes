@@ -44,7 +44,7 @@ Based on unitary tests an API documentation was built using Spring REST Docs and
 
 For each each application there is a Swagger interface http://keycloak:8081/swagger-ui.html and http://keycloak:8082/swagger-ui.html (**username** = **skip**)(**password** = **password**).
 
-All events can be found at http://keycloak:2113 (**username** = **admin**)(**password** = **changeit**).
+All events can be found at http://keycloak:2113/web/index.html#/streams (**username** = **admin**)(**password** = **changeit**).
 
 The Keycloak was used for the IAM http://keycloak:8080 (**username** = **admin**)(**password** = **admin**).
 
@@ -66,7 +66,7 @@ Many things are considered for the proposed solution. The following figures show
 
 ### 4.1. Domain Architecture
 
-The proposed solution uses some concepts such as DDD, Event Sourcing, and CQRS. Some details of these concepts are available in:
+The proposed solution follow some concepts such as DDD, Event Sourcing, and CQRS. Some details of these concepts are available in:
 
   #### DDD: https://martinfowler.com/tags/domain%20driven%20design.html
   #### CQRS: https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf
