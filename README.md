@@ -105,7 +105,7 @@ The following technologies are used for each "domain module".
     4. Docker
     5. Docker Compose
     6. Keycloak
-    7. Spring Data JPA :worried:
+    7. Spring Data JPA
     8. Spring REST Docs
     9. PostgreSQL
     10. Liquibase
