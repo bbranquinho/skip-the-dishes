@@ -29,7 +29,7 @@ $ ./start-local.sh
 
 ### 2.2. Second (Linux, OS X, Windows)
 
-This option is better, however, JDK and Maven are required. The following commands are used:
+This option is better, however, JDK and Maven are required.
 
 ```sh
 $ mvn package
