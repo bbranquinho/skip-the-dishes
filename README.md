@@ -50,9 +50,9 @@ The Keycloak was used for the IAM http://keycloak:8080 (**username** = **admin**
 
 ### 3.1. Overview
 
-|      Application      |                    Hostname                  |   Credential (user)  | Credential (password) |
+|      Application      |             Hostname (folder)                |   Credential (user)  | Credential (password) |
 | --------------------- | -------------------------------------------- | -------------------- | --------------------- |
-| API Documentation     | http://nostalgic-hugle-712220.bitballoon.com |         -            |           -           |
+| API Documentation     | Folder docs/api-docs                         |         -            |           -           |
 | Event Store Database  | http://keycloak:2113                         |       admin          |       changeit        |
 | Keycloak              | http://keycloak:8080                         |       admin          |         admin         |
 | Command (Swagger)     | http://keycloak:8081/swagger-ui.html         |       skip           |       password        |
