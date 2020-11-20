@@ -28,7 +28,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <kotlin.version>1.2.30</kotlin.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <mockito.kotlin.version>1.5.0</mockito.kotlin.version>
         <event.sourcing.version>0.0.16-SNAPSHOT</event.sourcing.version>
         <log4j.version>2.10.0</log4j.version>
