@@ -37,7 +37,7 @@
         <feign.version>9.5.0</feign.version>
         <keycloak.version>4.8.3.Final</keycloak.version>
         <dockerfile.maven.version>1.4.3</dockerfile.maven.version>
-        <springfox.swagger.version>2.9.2</springfox.swagger.version>
+        <springfox.swagger.version>2.10.0</springfox.swagger.version>
     </properties>
 
     <repositories>
