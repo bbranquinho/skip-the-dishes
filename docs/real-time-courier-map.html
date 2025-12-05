@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-time Courier Map (Tile38)</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-o9N1j7kG9kG6LkMcG3PrzGgC7PcNVPOybjC2F0cRrj0="
+      crossorigin=""
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        --accent: #2684ff;
+        --danger: #d94040;
+        --bg: #f5f5f7;
+        --panel: #ffffff;
+        --border: #d0d7de;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: #111827;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+        margin: 0;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      header {
+        padding: 1rem 1.5rem;
+        background: var(--panel);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+        z-index: 2;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 1rem;
+        padding: 1rem;
+        flex: 1;
+        min-height: 0;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        overflow: auto;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #4b5563;
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+
+      input,
+      select {
+        padding: 0.45rem 0.6rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border);
+        font-size: 0.95rem;
+      }
+
+      button {
+        padding: 0.7rem 0.9rem;
+        border: none;
+        border-radius: 0.6rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .btn-secondary {
+        background: #e5e7eb;
+        color: #1f2933;
+      }
+
+      #map {
+        height: 100%;
+        border-radius: 0.75rem;
+        border: 1px solid var(--border);
+      }
+
+      .map-wrapper {
+        position: relative;
+        min-height: 0;
+      }
+
+      .status-log {
+        max-height: 200px;
+        overflow-y: auto;
+        font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono",
+          Menlo, monospace;
+        font-size: 0.8rem;
+        background: #0f172a;
+        color: #f8fafc;
+        padding: 0.75rem;
+        border-radius: 0.6rem;
+      }
+
+      .status-log p {
+        margin: 0 0 0.5rem;
+        border-left: 3px solid #38bdf8;
+        padding-left: 0.35rem;
+      }
+
+      .status-log p:last-child {
+        margin-bottom: 0;
+      }
+
+      .status-log .error {
+        border-color: var(--danger);
+      }
+
+      .legend {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+        color: #4b5563;
+      }
+
+      .legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .dot {
+        display: inline-block;
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50%;
+      }
+
+      .courier-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        font-size: 0.9rem;
+        max-height: 280px;
+        overflow-y: auto;
+      }
+
+      .courier-card {
+        padding: 0.65rem;
+        border: 1px solid var(--border);
+        border-radius: 0.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .courier-card strong {
+        font-size: 1rem;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.1rem 0.5rem;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      .pill.inside {
+        background: rgba(34, 197, 94, 0.15);
+        color: #15803d;
+      }
+
+      .pill.enter {
+        background: rgba(14, 165, 233, 0.15);
+        color: #0369a1;
+      }
+
+      .pill.exit {
+        background: rgba(251, 113, 133, 0.15);
+        color: #be123c;
+      }
+
+      .pill.update {
+        background: rgba(249, 115, 22, 0.15);
+        color: #c2410c;
+      }
+
+      @media (max-width: 960px) {
+        .content {
+          grid-template-columns: 1fr;
+          grid-template-rows: min-content 1fr;
+        }
+
+        .panel {
+          max-height: 40vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Real-time Courier Map (Tile38)</h1>
+        <p style="margin-top: 0.35rem; color: #4b5563">
+          Subscribe to Tile38 geofences and visualize courier updates live.
+        </p>
+      </header>
+      <div class="content">
+        <section class="panel">
+          <form id="connection-form">
+            <label>
+              WebSocket endpoint
+              <input
+                type="text"
+                id="endpoint"
+                placeholder="ws://localhost:9851"
+                value="ws://localhost:9851"
+                required
+              />
+            </label>
+            <label>
+              Tile38 key (collection)
+              <input
+                type="text"
+                id="key"
+                placeholder="couriers"
+                value="couriers"
+                required
+              />
+            </label>
+            <label>
+              Fence center latitude
+              <input
+                type="number"
+                step="any"
+                id="center-lat"
+                placeholder="0"
+                value="0"
+                required
+              />
+            </label>
+            <label>
+              Fence center longitude
+              <input
+                type="number"
+                step="any"
+                id="center-lon"
+                placeholder="0"
+                value="0"
+                required
+              />
+            </label>
+            <label>
+              Fence radius (meters)
+              <input
+                type="number"
+                id="radius"
+                placeholder="4000000"
+                value="4000000"
+                required
+              />
+            </label>
+            <label>
+              Optional AUTH password (leave empty if none)
+              <input type="password" id="password" placeholder="••••••" />
+            </label>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap">
+              <button type="submit" class="btn-primary">Connect</button>
+              <button type="button" class="btn-secondary" id="disconnect-btn">
+                Disconnect
+              </button>
+            </div>
+          </form>
+          <div class="legend">
+            <span><span class="dot" style="background: #2dd4bf"></span>Active courier</span>
+            <span
+              ><span class="dot" style="background: #f97316"></span>Updated in the
+              last minute</span
+            >
+          </div>
+          <div class="courier-list" id="courier-list"></div>
+          <div class="status-log" id="status-log"></div>
+        </section>
+        <section class="map-wrapper">
+          <div id="map"></div>
+        </section>
+      </div>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-o9N1j7kG9kG6LkMcG3PrzGgC7PcNVPOybjC2F0cRrj0="
+      crossorigin=""
+    ></script>
+    <script>
+      const map = L.map("map").setView([0, 0], 2);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+      }).addTo(map);
+
+      const markers = new Map();
+      let socket = null;
+      let reconnectTimer = null;
+
+      const courierListEl = document.getElementById("courier-list");
+      const statusLogEl = document.getElementById("status-log");
+
+      const connectionForm = document.getElementById("connection-form");
+      const disconnectBtn = document.getElementById("disconnect-btn");
+
+      const SEND_EOL = "\r\n";
+
+      const markerIcon = L.icon({
+        iconUrl:
+          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+        iconRetinaUrl:
+          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+        shadowUrl:
+          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
+      });
+
+      function logStatus(message, type = "info") {
+        const entry = document.createElement("p");
+        entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+        if (type === "error") entry.classList.add("error");
+        statusLogEl.prepend(entry);
+        while (statusLogEl.childElementCount > 30) {
+          statusLogEl.removeChild(statusLogEl.lastChild);
+        }
+      }
+
+      function sendCommand(command) {
+        if (socket && socket.readyState === WebSocket.OPEN) {
+          socket.send(`${command}${SEND_EOL}`);
+        }
+      }
+
+      function disconnect() {
+        if (socket) {
+          logStatus("Disconnecting from Tile38...");
+          socket.close(1000, "client disconnect");
+          socket = null;
+        }
+        if (reconnectTimer) {
+          clearTimeout(reconnectTimer);
+          reconnectTimer = null;
+        }
+      }
+
+      function updateCourierCard(id, lat, lon, detect, fields) {
+        let card = courierListEl.querySelector(`[data-id="${id}"]`);
+        if (!card) {
+          card = document.createElement("div");
+          card.className = "courier-card";
+          card.dataset.id = id;
+          courierListEl.prepend(card);
+        }
+
+        const lastSeen = new Date().toLocaleTimeString();
+        card.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <strong>${id}</strong>
+            <span class="pill ${detect}">${detect}</span>
+          </div>
+          <span>Lat: ${lat.toFixed(5)}, Lon: ${lon.toFixed(5)}</span>
+          ${
+            fields && Object.keys(fields).length
+              ? `<small>Fields: ${JSON.stringify(fields)}</small>`
+              : ""
+          }
+          <small style="color:#6b7280">Last seen ${lastSeen}</small>
+        `;
+      }
+
+      function removeCourierCard(id) {
+        const card = courierListEl.querySelector(`[data-id="${id}"]`);
+        if (card) {
+          courierListEl.removeChild(card);
+        }
+      }
+
+      function focusOnMarkers() {
+        if (!markers.size) return;
+        const group = L.featureGroup(Array.from(markers.values()));
+        map.fitBounds(group.getBounds().pad(0.2));
+      }
+
+      function handleTile38Message(event) {
+        if (!event?.data) return;
+        let payload;
+        try {
+          payload = JSON.parse(event.data);
+        } catch (err) {
+          logStatus(`Non-JSON message: ${event.data}`, "error");
+          return;
+        }
+
+        if (payload.err) {
+          logStatus(`Tile38 error: ${payload.err}`, "error");
+          return;
+        }
+
+        if (payload.ok && !payload.command) {
+          // Command acknowledgement
+          logStatus(`Tile38: ${JSON.stringify(payload)}`);
+          return;
+        }
+
+        const { id, detect, object, fields = {} } = payload;
+        if (!id || !object || object.type !== "Point") return;
+        const [lon, lat] = object.coordinates;
+
+        if (detect === "exit") {
+          const marker = markers.get(id);
+          if (marker) {
+            map.removeLayer(marker);
+            markers.delete(id);
+          }
+          removeCourierCard(id);
+          logStatus(`Courier ${id} exited fence.`);
+          return;
+        }
+
+        let marker = markers.get(id);
+        if (!marker) {
+          marker = L.marker([lat, lon], { icon: markerIcon });
+          marker.addTo(map);
+          markers.set(id, marker);
+        } else {
+          marker.setLatLng([lat, lon]);
+        }
+
+        const popupContent = `
+          <strong>${id}</strong><br/>
+          Lat: ${lat.toFixed(5)}, Lon: ${lon.toFixed(5)}<br/>
+          Detect: ${detect}<br/>
+          ${
+            fields && Object.keys(fields).length
+              ? `Fields: ${JSON.stringify(fields)}`
+              : ""
+          }
+        `;
+        marker.bindPopup(popupContent);
+        updateCourierCard(id, lat, lon, detect, fields);
+      }
+
+      function connectToTile38(evt) {
+        evt.preventDefault();
+        disconnect();
+
+        const endpoint = document.getElementById("endpoint").value.trim();
+        const key = document.getElementById("key").value.trim();
+        const centerLat = parseFloat(
+          document.getElementById("center-lat").value
+        );
+        const centerLon = parseFloat(
+          document.getElementById("center-lon").value
+        );
+        const radius = parseInt(document.getElementById("radius").value, 10);
+        const password = document.getElementById("password").value.trim();
+
+        if (!endpoint || !key || Number.isNaN(centerLat) || Number.isNaN(centerLon) || Number.isNaN(radius)) {
+          logStatus("Missing or invalid connection details.", "error");
+          return;
+        }
+
+        logStatus(`Connecting to ${endpoint}...`);
+        socket = new WebSocket(endpoint);
+
+        socket.addEventListener("open", () => {
+          logStatus("Connected. Configuring Tile38 output...");
+          if (password) {
+            sendCommand(`AUTH ${password}`);
+          }
+          sendCommand("OUTPUT json");
+          const fenceCommand = `NEARBY ${key} FENCE DETECT enter,inside,exit,update POINT ${centerLat} ${centerLon} ${radius}`;
+          logStatus(`Subscribing with: ${fenceCommand}`);
+          sendCommand(fenceCommand);
+        });
+
+        socket.addEventListener("message", handleTile38Message);
+
+        socket.addEventListener("close", (event) => {
+          logStatus(`Connection closed (${event.code}).`);
+          socket = null;
+        });
+
+        socket.addEventListener("error", (error) => {
+          logStatus(`WebSocket error: ${error.message || error}`, "error");
+        });
+      }
+
+      connectionForm.addEventListener("submit", connectToTile38);
+      disconnectBtn.addEventListener("click", disconnect);
+
+      window.addEventListener("beforeunload", () => {
+        disconnect();
+      });
+
+      // Encourage initial fit when markers arrive
+      setInterval(focusOnMarkers, 10000);
+    </script>
+  </body>
+</html>
