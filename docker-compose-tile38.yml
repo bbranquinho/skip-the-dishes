@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  tile38:
+    image: tile38/tile38:latest
+    container_name: tile38
+    command: >
+      tile38-server
+      --data-dir /data
+      --appendonly yes
+    ports:
+      - "9851:9851"
+    volumes:
+      - tile38-data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "tile38-cli", "server", "stats"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  tile38-data:
